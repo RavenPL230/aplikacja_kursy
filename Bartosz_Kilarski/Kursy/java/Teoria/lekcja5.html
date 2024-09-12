@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nauka Informatyki poziom Rozszerzony</title>
+    <link rel="stylesheet" href="../../../assets/css/style.css">
+</head>
+<body>
+
+   
+
+    <nav>
+        <ul>
+            <li>
+                
+ 		
+  		      <a href="../teoria.html">Kursy Java</a>
+  	        
+            </li>
+        </ul>
+    </nav>
+
+
+<section>
+    <h1>1. Klasy i obiekty</h1>
+    <p>W Javie klasa jest szablonem do tworzenia obiektów. Obiekt jest instancją klasy i zawiera dane oraz metody, które operują na tych danych. Oto przykład definicji klasy oraz tworzenia obiektów:</p>
+    <ul>
+        <li><strong>Definicja klasy:</strong> <br><code>public class NazwaKlasy { /* atrybuty i metody */ }</code></li>
+        <li><strong>Tworzenie instancji:</strong> <br><code>NazwaKlasy obiekt = new NazwaKlasy();</code></li>
+    </ul>
+	<br></br>
+    <pre><code>public class Osoba {
+    // Atrybuty klasy
+    String imie;
+    int wiek;
+    
+    // Metoda
+    public void przedstawSie() {
+        System.out.println("Czesc, nazywam sie " + imie + " i mam " + wiek + " lat.");
+    }
+    
+    public static void main(String[] args) {
+        // Tworzenie instancji klasy
+        Osoba osoba1 = new Osoba();
+        osoba1.imie = "Jan";
+        osoba1.wiek = 30;
+        osoba1.przedstawSie();
+    }
+}
+</code></pre>
+</section>
+
+<section>
+    <h1>2. Konstruktor i destruktor</h1>
+    <p>Konstruktor to specjalna metoda, która jest wywoływana podczas tworzenia obiektu i służy do jego inicjalizacji. W Javie destruktor jest realizowany przez garbage collection. Oto przykład:</p>
+    <ul>
+        <li><strong>Konstruktor:</strong> <br><code>public NazwaKlasy() { /* inicjalizacja */ }</code></li>
+    </ul>
+	<br></br>
+    <pre><code>public class Samochod {
+    String marka;
+    int rokProdukcji;
+    
+    // Konstruktor
+    public Samochod(String marka, int rokProdukcji) {
+        this.marka = marka;
+        this.rokProdukcji = rokProdukcji;
+    }
+    
+    public void pokazInformacje() {
+        System.out.println("Marka: " + marka + ", Rok produkcji: " + rokProdukcji);
+    }
+    
+    public static void main(String[] args) {
+        // Tworzenie obiektu z uzyciem konstruktora
+        Samochod samochod1 = new Samochod("Toyota", 2020);
+        samochod1.pokazInformacje();
+    }
+}
+</code></pre>
+</section>
+
+<section>
+    <h1>3. Metody i atrybuty</h1>
+    <p>Metody i atrybuty w klasie mogą mieć różne poziomy dostępu: publiczny, prywatny lub chroniony. Oto przykłady:</p>
+    <ul>
+        <li><strong>Publiczne:</strong> <br><code>public int atrybut;</code> <br><code>public void metoda() { /* kod */ }</code></li>
+        <li><strong>Prywatne:</strong> <br><code>private int atrybut;</code> <br><code>private void metoda() { /* kod */ }</code></li>
+        <li><strong>Chronione:</strong> <br><code>protected int atrybut;</code> <br><code>protected void metoda() { /* kod */ }</code></li>
+    </ul>
+	<br></br>
+    <pre><code>public class KontoBankowe {
+    private double saldo;
+    
+    // Konstruktor
+    public KontoBankowe(double saldo) {
+        this.saldo = saldo;
+    }
+    
+    // Metoda publiczna
+    public void wplac(double kwota) {
+        saldo += kwota;
+    }
+    
+    // Metoda publiczna
+    public void sprawdzSaldo() {
+        System.out.println("Aktualne saldo: " + saldo);
+    }
+    
+    public static void main(String[] args) {
+        KontoBankowe konto = new KontoBankowe(1000);
+        konto.wplac(500);
+        konto.sprawdzSaldo();
+    }
+}
+</code></pre>
+</section>
+
+<section>
+    <h1>4. Dziedziczenie</h1>
+    <p>Dziedziczenie pozwala tworzyć nowe klasy na podstawie istniejących klas, odziedziczać ich atrybuty i metody. Java wspiera tylko pojedyncze dziedziczenie klas:</p>
+    <ul>
+        <li><strong>Klasa bazowa:</strong> <br><code>public class KlasaBazowa { /* atrybuty i metody */ }</code></li>
+        <li><strong>Klasa pochodna:</strong> <br><code>public class KlasaPochodna extends KlasaBazowa { /* dodatkowe atrybuty i metody */ }</code></li>
+    </ul>
+	<br></br>
+    <pre><code>public class Zwierze {
+    public void wydajDzwiek() {
+        System.out.println("Zwierze wydaje dzwiek");
+    }
+}
+
+public class Pies extends Zwierze {
+    @Override
+    public void wydajDzwiek() {
+        System.out.println("Pies szczeka");
+    }
+    
+    public static void main(String[] args) {
+        Pies pies = new Pies();
+        pies.wydajDzwiek();
+    }
+}
+</code></pre>
+</section>
+
+<section>
+    <h1>5. Polimorfizm</h1>
+    <p>Polimorfizm pozwala na używanie obiektów różnych klas w jednolity sposób. W Javie realizowany jest poprzez metody wirtualne i dynamiczne wiązanie:</p>
+    <ul>
+        <li><strong>Metody wirtualne:</strong> <br>Metody w klasach bazowych, które mogą być nadpisywane w klasach pochodnych.</li>
+        <li><strong>Dynamiczne wiązanie:</strong> <br>Mechanizm, który pozwala na wywoływanie metod w czasie wykonywania programu, w zależności od rzeczywistego typu obiektu.</li>
+    </ul>
+	<br></br>
+        <pre><code>/* Plik: Animal.java */
+public class Animal {
+    public void makeSound() {
+        System.out.println("Animal makes a sound");
+    }
+}
+</code></pre>
+        <pre><code>/* Plik: Cat.java */
+public class Cat extends Animal {
+    @Override
+    public void makeSound() {
+        System.out.println("Cat meows");
+    }
+}
+</code></pre>
+        <pre><code>/* Plik: PolymorphismExample.java */
+public class PolymorphismExample {
+    public static void main(String[] args) {
+        Animal myCat = new Cat(); // Dynamiczne wiazanie
+        myCat.makeSound(); // Wywoluje metode klasy Cat
+    }
+}
+</code></pre>
+</section>
+
+<section>
+    <h1>6. Przykład projektu z użyciem klas</h1>
+    <p>Oto prosty projekt pokazujący użycie klas, dziedziczenia i polimorfizmu:</p>
+    <pre><code>/* Plik: Produkt.java */
+public class Produkt {
+    String nazwa;
+    double cena;
+    
+    public Produkt(String nazwa, double cena) {
+        this.nazwa = nazwa;
+        this.cena = cena;
+    }
+    
+    public void pokazInformacje() {
+        System.out.println("Produkt: " + nazwa + ", Cena: " + cena);
+    }
+}
+</code></pre>
+        <pre><code>/* Plik: Elektronika.java */
+public class Elektronika extends Produkt {
+    String marka;
+    
+    public Elektronika(String nazwa, double cena, String marka) {
+        super(nazwa, cena);
+        this.marka = marka;
+    }
+    
+    @Override
+    public void pokazInformacje() {
+        System.out.println("Produkt: " + nazwa + ", Cena: " + cena + ", Marka: " + marka);
+    }
+}
+</code></pre>
+ <pre><code>/* Plik: Main.java */
+public class Main {
+    public static void main(String[] args) {
+        Produkt produkt = new Produkt("Książka", 29.99);
+        produkt.pokazInformacje();
+        
+        Elektronika elektronika = new Elektronika("Smartfon", 799.99, "Samsung");
+        elektronika.pokazInformacje();
+    }
+}
+</code></pre>
+</section>
+
+
+    <footer>
+        <p>Bartosz Kilarski</p>
+        <p>Politechnika Świętokrzyska w Kielcach</p>
+    </footer>
+</body>
+</html>

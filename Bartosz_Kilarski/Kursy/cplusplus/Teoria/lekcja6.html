@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nauka Informatyki poziom Rozszerzony</title>
+    <link rel="stylesheet" href="../../../assets/css/style.css">
+</head>
+<body>
+
+    <nav>
+        <ul>
+            <li>
+                <a href="../teoria.html">Kursy C++</a>
+            </li>
+        </ul>
+    </nav>
+
+    <main>
+        <section>
+            <h1>1. Używanie przestrzeni nazw (namespace) do organizacji kodu</h1>
+            <p>Przestrzenie nazw służą do organizowania kodu i unikania konfliktów nazw. Oto przykład użycia przestrzeni nazw:</p>
+            <pre><code>#include &lt;iostream&gt;
+
+using namespace std;
+
+namespace Matematyka {
+    int dodaj(int a, int b) {
+        return a + b;
+    }
+}
+
+namespace Geometria {
+    void rysuj() {
+        cout << "Rysuję figurę" << endl;
+    }
+}
+
+int main() {
+    cout << "Wynik dodawania: " << Matematyka::dodaj(5, 3) << endl;
+    Geometria::rysuj();
+
+    return 0;
+}</code></pre>
+        </section>
+
+        <section>
+            <h1>2. Definiowanie i używanie modułów: pliki nagłówkowe i źródłowe</h1>
+            <p>Moduły w C++ dzielą kod na pliki nagłówkowe (.h) i źródłowe (.cpp). Plik nagłówkowy zawiera deklaracje, a plik źródłowy definicje funkcji i metod. Przykład:</p>
+            <pre><code>// Plik: matematyka.h
+#ifndef MATEMATYKA_H
+#define MATEMATYKA_H
+
+int dodaj(int a, int b);
+
+#endif
+
+// Plik: matematyka.cpp
+#include "matematyka.h"
+
+int dodaj(int a, int b) {
+    return a + b;
+}
+
+// Plik: main.cpp
+#include &lt;iostream&gt;
+#include "matematyka.h"
+
+using namespace std;
+
+int main() {
+    cout << "Wynik dodawania: " << dodaj(5, 3) << endl;
+
+    return 0;
+}</code></pre>
+        </section>
+
+        <section>
+            <h1>3. Importowanie bibliotek standardowych i zewnętrznych</h1>
+            <p>Biblioteki standardowe są dostarczane z kompilatorem, natomiast biblioteki zewnętrzne muszą być dołączane osobno. Oto przykład importowania bibliotek standardowych i zewnętrznych:</p>
+            <pre><code>#include &lt;iostream&gt;
+#include &lt;vector&gt;
+// #include &lt;mojaBiblioteka.h&gt; // Przykład dołączenia zewnętrznej biblioteki
+
+using namespace std;
+
+int main() {
+    vector&lt;int&gt; liczby = {1, 2, 3, 4, 5};
+    for (int liczba : liczby) {
+        cout << liczba << " ";
+    }
+    cout << endl;
+
+    return 0;
+}</code></pre>
+        </section>
+
+        <section>
+            <h1>4. Tworzenie i używanie własnych bibliotek</h1>
+            <p>Własne biblioteki można tworzyć, aby ponownie wykorzystywać kod w różnych projektach. Oto przykład tworzenia i używania własnej biblioteki:</p>
+            <pre><code>// Plik: mojaBiblioteka.h
+#ifndef MOJA_BIBLIOTEKA_H
+#define MOJA_BIBLIOTEKA_H
+
+void przywitaj();
+
+#endif
+
+// Plik: mojaBiblioteka.cpp
+#include &lt;iostream&gt;
+#include "mojaBiblioteka.h"
+
+using namespace std;
+
+void przywitaj() {
+    cout << "Witaj z mojej biblioteki!" << endl;
+}
+
+// Plik: main.cpp
+#include &lt;iostream&gt;
+#include "mojaBiblioteka.h"
+
+using namespace std;
+
+int main() {
+    przywitaj();
+
+    return 0;
+}</code></pre>
+        </section>
+    </main>
+
+    <footer>
+        <p>Bartosz Kilarski</p>
+        <p>Politechnika Świętokrzyska w Kielcach</p>
+    </footer>
+</body>
+</html>

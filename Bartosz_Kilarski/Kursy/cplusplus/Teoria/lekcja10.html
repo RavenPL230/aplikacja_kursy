@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nauka Informatyki poziom Rozszerzony</title>
+    <link rel="stylesheet" href="../../../assets/css/style.css">
+</head>
+<body>
+
+    <nav>
+        <ul>
+            <li>
+                <a href="../teoria.html">Kursy C++</a>
+            </li>
+        </ul>
+    </nav>
+
+    <main>
+        <section>
+            <h1><strong>1. Wprowadzenie do zarządzania pamięcią: podstawowe pojęcia</strong></h1>
+            <p>Zarządzanie pamięcią w C++ jest kluczowe dla efektywnego działania aplikacji. Obejmuje to zrozumienie podstawowych pojęć, takich jak wskaźniki, referencje, dynamiczna alokacja pamięci oraz smart wskaźniki. Oto główne aspekty:</p>
+            <ul>
+                <li><strong>Wskaźniki i referencje:</strong> Mechanizmy pozwalające na manipulowanie adresami pamięci oraz aliasami zmiennych.</li>
+                <li><strong>Dynamiczna alokacja pamięci:</strong> Przydzielanie pamięci w trakcie działania programu.</li>
+                <li><strong>Smart wskaźniki:</strong> Wskaźniki, które zarządzają pamięcią automatycznie, co zmniejsza ryzyko wycieków pamięci.</li>
+                <li><strong>Mechanizmy C++11:</strong> Nowe funkcje i wskaźniki wprowadzone w C++11, które ułatwiają zarządzanie pamięcią.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h1><strong>2. Wskaźniki i referencje: definicja, użycie i różnice</strong></h1>
+            <p>Wskaźniki są zmiennymi przechowującymi adresy innych zmiennych, natomiast referencje są aliasami dla istniejących zmiennych. Oto przykłady użycia:</p>
+            <pre><code>#include &lt;iostream&gt;
+
+using namespace std;
+
+int main() {
+    int a = 10;
+    int* ptr = &a; // wskaźnik
+    int& ref = a;  // referencja
+
+    cout << "Wartość a: " << a << endl;
+    cout << "Wartość przez wskaźnik: " << *ptr << endl;
+    cout << "Wartość przez referencję: " << ref << endl;
+
+    return 0;
+}</code></pre>
+        </section>
+
+        <section>
+            <h1><strong>3. Dynamiczna alokacja pamięci: new, delete</strong></h1>
+            <p>Dynamiczna alokacja pamięci pozwala na przydzielanie pamięci w trakcie działania programu. Używamy do tego operatorów <code>new</code> i <code>delete</code>. Przykład:</p>
+            <pre><code>#include &lt;iostream&gt;
+
+using namespace std;
+
+int main() {
+    int* ptr = new int(5); // alokacja pamięci
+    cout << "Wartość: " << *ptr << endl;
+    delete ptr; // zwolnienie pamięci
+
+    return 0;
+}</code></pre>
+        </section>
+
+        <section>
+            <h1><strong>4. Smart wskaźniki: unique_ptr, shared_ptr, weak_ptr</strong></h1>
+            <p>Smart wskaźniki zarządzają pamięcią automatycznie, co pomaga uniknąć wycieków pamięci. Oto przykłady:</p>
+            <pre><code>#include &lt;iostream&gt;
+#include &lt;memory&gt;
+
+using namespace std;
+
+int main() {
+
+    unique_ptr&lt;int&gt; uniqPtr(new int(10));
+    cout << "Wartość unique_ptr: " << *uniqPtr << endl;
+
+    shared_ptr&lt;int&gt; sharPtr(new int(20));
+    cout << "Wartość shared_ptr: " << *sharPtr << endl;
+
+    weak_ptr&lt;int&gt; weakPtr = sharPtr;
+    if (auto spt = weakPtr.lock()) {
+        cout << "Wartość weak_ptr: " << *spt << endl;
+    } else {
+        cout << "Obiekt nie istnieje" << endl;
+    }
+
+    return 0;
+}</code></pre>
+        </section>
+
+        <section>
+            <h1><strong>5. Mechanizmy zarządzania pamięcią w C++11 i późniejszych wersjach</strong></h1>
+            <p>C++11 wprowadził nowe mechanizmy zarządzania pamięcią, takie jak smart wskaźniki oraz funkcje pomocnicze. Przykład użycia:</p>
+            <pre><code>#include &lt;iostream&gt;
+#include &lt;memory&gt;
+
+using namespace std;
+
+int main() {
+    // Przykład użycia unique_ptr bez make_unique
+    unique_ptr&lt;int&gt; ptr(new int(30));
+    cout << "Wartość unique_ptr: " << *ptr << endl;
+
+    return 0;
+}</code></pre>
+        </section>
+    </main>
+
+    <footer>
+        <p>Bartosz Kilarski</p>
+        <p>Politechnika Świętokrzyska w Kielcach</p>
+    </footer>
+</body>
+</html>

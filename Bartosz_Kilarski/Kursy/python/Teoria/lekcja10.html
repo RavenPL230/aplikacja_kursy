@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nauka Informatyki poziom Rozszerzony</title>
+    <link rel="stylesheet" href="../../../assets/css/style.css">
+</head>
+<body>
+
+   
+
+    <nav>
+        <ul>
+            <li>
+                
+ 		
+  		      <a href="../teoria.html">Kursy Python</a>
+  	        
+            </li>
+        </ul>
+    </nav>
+
+<section>
+    <h1><strong>1. Wprowadzenie do Garbage Collection:</strong></h1>
+    <p>Garbage Collection (GC) to mechanizm zarządzania pamięcią w Pythonie, który automatycznie usuwa nieużywane obiekty z pamięci. Python śledzi referencje do obiektów, a gdy dany obiekt nie jest już potrzebny (nie ma referencji do niego), zostaje automatycznie usunięty, aby zwolnić pamięć.</p>
+</section>
+
+<section>
+    <h1><strong>2. Referencje i zarządzanie obiektami w pamięci:</strong></h1>
+    <p>Każdy obiekt w Pythonie ma przypisaną liczbę referencji, które wskazują, ile razy dany obiekt jest używany. Gdy liczba referencji spada do zera, obiekt może zostać usunięty. Python automatycznie zarządza referencjami, ale warto zrozumieć ten mechanizm przy pracy z bardziej złożonymi strukturami danych.</p>
+</section>
+
+<section>
+    <h1><strong>3. <code>deepcopy()</code> vs <code>copy()</code>:</strong></h1>
+    <p>Python oferuje dwie funkcje do kopiowania obiektów: <code>copy()</code> oraz <code>deepcopy()</code>. Oto ich różnice:</p>
+    <h2><strong>Funkcja <code>copy()</code>:</strong></h2>
+    <p>Tworzy płytką kopię obiektu, co oznacza, że obiekt zewnętrzny zostaje skopiowany, ale obiekty zagnieżdżone są współdzielone. Przykład:</p>
+    <pre><code>import copy
+
+lista1 = [1, 2, [3, 4]]
+lista2 = copy.copy(lista1)
+lista2[2][0] = 99
+print(lista1)</code></pre>
+
+    <h2><strong>Funkcja <code>deepcopy()</code>:</strong></h2>
+    <p>Tworzy głęboką kopię obiektu, co oznacza, że wszystkie elementy, zarówno zewnętrzne, jak i zagnieżdżone, są kopiowane, co pozwala na niezależność obiektów. Przykład:</p>
+    <pre><code>import copy
+
+lista1 = [1, 2, [3, 4]]
+lista2 = copy.deepcopy(lista1)
+lista2[2][0] = 99
+print(lista1)</code></pre>
+</section>
+
+
+
+    <footer>
+        <p>Bartosz Kilarski</p>
+        <p>Politechnika Świętokrzyska w Kielcach</p>
+    </footer>
+</body>
+</html>

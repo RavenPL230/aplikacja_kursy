@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nauka Informatyki poziom Rozszerzony</title>
+    <link rel="stylesheet" href="../../../assets/css/style.css">
+</head>
+<body>
+
+   
+
+    <nav>
+        <ul>
+            <li>
+                
+ 		
+  		      <a href="../teoria.html">Kursy C++</a>
+  	        
+            </li>
+        </ul>
+    </nav>
+
+<section>
+    <h1>1. Co to jest C++?</h1>
+    <p>C++ to język programowania ogólnego przeznaczenia, oparty na C, który wspiera programowanie zorientowane obiektowo. Jest używany w wielu dziedzinach, takich jak tworzenie oprogramowania systemowego, gier, oraz aplikacji wymagających wysokiej wydajności.</p>
+</section>
+
+<section>
+    <h2>2. Instalacja C++</h2>
+    <p>Aby rozpocząć programowanie w C++, należy zainstalować odpowiednie środowisko programistyczne, takie jak <a href="https://visualstudio.microsoft.com/" style="color: #1e90ff;">Visual Studio</a> lub <a href="https://www.codeblocks.org/" style="color: #1e90ff;">Code::Blocks</a>. Dostępne są również kompilatory C++ do użytku w przeglądarce np: <a href="https://www.onlinegdb.com/online_c++_compiler" style="color: #1e90ff;">OnlineGDB</a>.</p>
+</section>
+
+<section>
+    <h2>3. Pierwszy program w C++</h2>
+    <p>Po zainstalowaniu środowiska można napisać swój pierwszy program w C++. Otwórz edytor kodu i wpisz:</p>
+    <pre><code>#include &lt;iostream&gt;
+using namespace std;
+
+int main() {
+    cout << "Witaj, świecie!" << endl;
+    return 0;
+}
+</code></pre>
+    <p>Po skompilowaniu i uruchomieniu programu powinien on wyświetlić tekst: <strong>Witaj, świecie!</strong></p>
+</section>
+
+<section>
+    <h2>4. Podstawowe typy danych w C++</h2>
+    <ul>
+        <li><strong>Liczby całkowite (int, short, long):</strong>
+        <blockquote>
+            <ul>
+                <li><strong>int:</strong> Liczby całkowite o standardowym zakresie. Przykład:
+                    <br><code>int x = 5;</code>
+                    <br><code>int y = -3;</code>
+                </li>
+                <li><strong>short:</strong> Krótszy typ całkowity, zajmuje mniej pamięci. Przykład:
+                    <br><code>short s = 32767;</code>
+                </li>
+                <li><strong>long:</strong> Dłuższy typ całkowity o większym zakresie. Przykład:
+                    <br><code>long l = 9223372036854775807L;</code>
+                </li>
+            </ul>
+        </blockquote>
+        </li>
+        <li><strong>Liczby zmiennoprzecinkowe (float, double):</strong>
+        <blockquote>
+            <ul>
+                <li><strong>float:</strong> Liczby zmiennoprzecinkowe z pojedynczą precyzją. Przykład:
+                    <br><code>float a = 3.14f;</code>
+                </li>
+                <li><strong>double:</strong> Liczby zmiennoprzecinkowe z podwójną precyzją. Przykład:
+                    <br><code>double b = -0.001;</code>
+                </li>
+            </ul>
+        </blockquote>
+        </li>
+        <li><strong>Znaki (char):</strong>
+        <blockquote>
+            <ul>
+                <li><strong>char:</strong> Pojedyncze znaki. Przykład:
+                    <br><code>char letter = 'A';</code>
+                </li>
+            </ul>
+        </blockquote>
+        </li>
+        <li><strong>Napisy (std::string):</strong>
+        <blockquote>
+            <ul>
+                <li><strong>string:</strong> Ciągi znaków tekstowych. Przykład:
+                    <br><code>std::string text = "Hello";</code>
+                </li>
+            </ul>
+        </blockquote>
+        </li>
+        <li><strong>Typ logiczny (bool):</strong>
+        <blockquote>
+            <ul>
+                <li><strong>bool:</strong> Typ logiczny reprezentujący wartości prawdy (true) i fałszu (false). Przykład:
+                    <br><code>bool is_valid = true;</code>
+                </li>
+            </ul>
+        </blockquote>
+        </li>
+        <li><strong>Typ void:</strong>
+        <blockquote>
+            <ul>
+                <li><strong>void:</strong> Specjalny typ używany w funkcjach, które nie zwracają wartości. Przykład:
+                    <br><code>void function_name();</code>
+                </li>
+            </ul>
+        </blockquote>
+        </li>
+    </ul>
+</section>
+
+<section>
+    <h2>5. Operatory matematyczne i logiczne</h2>
+    <ul>
+        <li><strong>Operatory matematyczne:</strong>
+            <blockquote>
+                <ul>
+                    <li><strong>Dodawanie (+):</strong> Dodaje dwie liczby. Przykład:
+                        <br><code>int sum = 5 + 3;</code>
+                    </li>
+                    <li><strong>Odejmowanie (-):</strong> Odejmuje jedną liczbę od drugiej. Przykład:
+                        <br><code>int difference = 10 - 4;</code>
+                    </li>
+                    <li><strong>Mnożenie (*):</strong> Mnoży dwie liczby. Przykład:
+                        <br><code>int product = 7 * 6;</code>
+                    </li>
+                    <li><strong>Dzielenie (/):</strong> Dzieli jedną liczbę przez drugą. Przykład:
+                        <br><code>double quotient = 8 / 2;</code>
+                    </li>
+                    <li><strong>Reszta z dzielenia (%):</strong> Zwraca resztę z dzielenia. Przykład:
+                        <br><code>int remainder = 10 % 3;</code>
+                    </li>
+                    <li><strong>Inkrementacja (++):</strong> Zwiększa wartość zmiennej o 1. Przykład:
+                        <br><code>int x = 5; x++;</code>
+                    </li>
+                    <li><strong>Dekrementacja (--):</strong> Zmniejsza wartość zmiennej o 1. Przykład:
+                        <br><code>int x = 5; x--;</code>
+                    </li>
+                </ul>
+            </blockquote>
+        </li>
+        <li><strong>Operatory logiczne:</strong>
+            <blockquote>
+                <ul>
+                    <li><strong>AND (&&):</strong> Zwraca <code>1</code>, jeśli oba warunki są prawdziwe. Przykład:
+                        <br><code>bool result = (5 &gt; 3) &amp;&amp; (8 &gt; 6);</code>
+                    </li>
+                    <li><strong>OR (||):</strong> Zwraca <code>1</code>, jeśli przynajmniej jeden z warunków jest prawdziwy. Przykład:
+                        <br><code>bool result = (5 &gt; 3) || (8 &lt; 6);</code>
+                    </li>
+                    <li><strong>NOT (!):</strong> Zwraca <code>1</code>, jeśli warunek jest fałszywy, inaczej <code>0</code>. Przykład:
+                        <br><code>bool result = !(5 &gt; 3);</code>
+                    </li>
+                    <li><strong>Równoważność (==):</strong> Sprawdza, czy dwie wartości są równe. Zwraca <code>1</code> (prawda) lub <code>0</code> (fałsz). Przykład:
+                        <br><code>bool isEqual = (5 == 5);</code>
+                    </li>
+                    <li><strong>Różność (!=):</strong> Sprawdza, czy dwie wartości są różne. Zwraca <code>1</code> (prawda) lub <code>0</code> (fałsz). Przykład:
+                        <br><code>bool isNotEqual = (5 != 3);</code>
+                    </li>
+                </ul>
+            </blockquote>
+        </li>
+    </ul>
+</section>
+
+
+
+
+    <footer>
+        <p>Bartosz Kilarski</p>
+        <p>Politechnika Świętokrzyska w Kielcach</p>
+    </footer>
+</body>
+</html>

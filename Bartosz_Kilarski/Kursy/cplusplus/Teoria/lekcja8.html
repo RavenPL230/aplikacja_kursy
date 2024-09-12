@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nauka Informatyki poziom Rozszerzony</title>
+    <link rel="stylesheet" href="../../../assets/css/style.css">
+</head>
+<body>
+
+    <nav>
+        <ul>
+            <li>
+                <a href="../teoria.html">Kursy C++</a>
+            </li>
+        </ul>
+    </nav>
+
+    <main>
+        <section>
+            <h1>1. Algorytmy sortowania</h1>
+             <p>Sortowanie to kluczowy algorytm w informatyce. Algorytmy sortowania są używane do organizacjii i uporządkowania danych według określonego porządku. Oto przykłady różnych algorytmów sortowania:</p>
+			<p>Sortowanie to kluczowy algorytm w informatyce. Oto przykłady różnych algorytmów sortowania:</p>
+			
+            <pre><code>#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;algorithm&gt;
+
+using namespace std;
+
+int main() {
+    vector&lt;int&gt; liczby = {5, 2, 9, 1, 5, 6};
+
+    // Sortowanie przy użyciu sort() (sortowanie szybkie)
+    sort(liczby.begin(), liczby.end());
+
+    cout << "Posortowane liczby: ";
+    for (int liczba : liczby) {
+        cout << liczba << " ";
+    }
+    cout << endl;
+
+    return 0;
+}</code></pre>
+            <p>Inne algorytmy sortowania, takie jak sortowanie przez scalanie i sortowanie szybkie, mają różne zastosowania w zależności od potrzeb:</p>
+            <pre><code>#include <iostream>
+#include <vector>
+
+using namespace std;
+
+// Sortowanie przez scalanie
+void scal(vector<int>& vec, int left, int middle, int right) {
+    vector<int> temp;
+    int i = left, j = middle + 1;
+    
+    while (i <= middle && j <= right) {
+        if (vec[i] <= vec[j]) {
+            temp.push_back(vec[i++]);
+        } else {
+            temp.push_back(vec[j++]);
+        }
+    }
+
+    while (i <= middle) {
+        temp.push_back(vec[i++]);
+    }
+
+    while (j <= right) {
+        temp.push_back(vec[j++]);
+    }
+
+    for (i = left; i <= right; ++i) {
+        vec[i] = temp[i - left];
+    }
+}
+
+void sortowaniePrzezScalanie(vector<int>& vec, int left, int right) {
+    if (left < right) {
+        int middle = left + (right - left) / 2;
+        sortowaniePrzezScalanie(vec, left, middle);
+        sortowaniePrzezScalanie(vec, middle + 1, right);
+        scal(vec, left, middle, right);
+    }
+}
+
+// Sortowanie szybkie
+int partition(vector<int>& vec, int low, int high) {
+    int pivot = vec[high];
+    int i = low - 1;
+    
+    for (int j = low; j < high; ++j) {
+        if (vec[j] <= pivot) {
+            ++i;
+            swap(vec[i], vec[j]);
+        }
+    }
+    swap(vec[i + 1], vec[high]);
+    return i + 1;
+}
+
+void sortowanieSzybkie(vector<int>& vec, int low, int high) {
+    if (low < high) {
+        int pi = partition(vec, low, high);
+        sortowanieSzybkie(vec, low, pi - 1);
+        sortowanieSzybkie(vec, pi + 1, high);
+    }
+}
+
+int main() {
+    vector<int> liczbyScalanie = {5, 2, 9, 1, 5, 6};
+    vector<int> liczbySzybkie = {5, 2, 9, 1, 5, 6};
+
+    // Sortowanie przez scalanie
+    sortowaniePrzezScalanie(liczbyScalanie, 0, liczbyScalanie.size() - 1);
+    cout << "Posortowane liczby (scalanie): ";
+    for (int liczba : liczbyScalanie) {
+        cout << liczba << " ";
+    }
+    cout << endl;
+
+    // Sortowanie szybkie
+    sortowanieSzybkie(liczbySzybkie, 0, liczbySzybkie.size() - 1);
+    cout << "Posortowane liczby (szybkie): ";
+    for (int liczba : liczbySzybkie) {
+        cout << liczba << " ";
+    }
+    cout << endl;
+
+    return 0;
+}</code></pre>
+        </section>
+
+        <section>
+            <h1>2. Wyszukiwanie binarne</h1>
+            <p>Wyszukiwanie binarne jest szybkim algorytmem wyszukiwania w posortowanej tablicy. Oto przykładowa implementacja:</p>
+            <pre><code>#include &lt;iostream&gt;
+#include &lt;vector&gt;
+
+using namespace std;
+
+// Wyszukiwanie binarne
+int wyszukajBinarne(const vector&lt;int&gt;&amp; vec, int szukana) {
+    int left = 0, right = vec.size() - 1;
+    
+    while (left &lt;= right) {
+        int mid = left + (right - left) / 2;
+        if (vec[mid] == szukana) {
+            return mid;
+        } else if (vec[mid] &lt; szukana) {
+            left = mid + 1;
+        } else {
+            right = mid - 1;
+        }
+    }
+
+    return -1; // Nie znaleziono
+}
+
+int main() {
+    vector&lt;int&gt; liczby = {1, 2, 5, 5, 6, 9};
+    int szukana = 5;
+    int wynik = wyszukajBinarne(liczby, szukana);
+
+    if (wynik != -1) {
+        cout << "Liczba znaleziona na indeksie: " << wynik << endl;
+    } else {
+        cout << "Liczba nie znaleziona" << endl;
+    }
+
+    return 0;
+}</code></pre>
+        </section>
+
+        <section>
+            <h1>3. Tabele haszujące</h1>
+            <p>Tabele haszujące pozwalają na szybkie przechowywanie i wyszukiwanie danych. W C++ można używać <code>unordered_map</code>:</p>
+            <pre><code>#include &lt;iostream&gt;
+#include &lt;unordered_map&gt;
+
+using namespace std;
+
+int main() {
+    unordered_map&lt;string, int&gt; tabelaHaszujaca;
+
+    // Dodawanie elementów
+    tabelaHaszujaca["jeden"] = 1;
+    tabelaHaszujaca["dwa"] = 2;
+
+    // Wyszukiwanie
+    cout << "Wartość dla 'jeden': " << tabelaHaszujaca["jeden"] << endl;
+
+    return 0;
+}</code></pre>
+        </section>
+
+        <section>
+            <h1>4. Kolejki i stosy</h1>
+            <p>Kolejki i stosy to podstawowe struktury danych, które można zaimplementować przy użyciu <code>queue</code> i <code>stack</code>:</p>
+            <pre><code>#include &lt;iostream&gt;
+#include &lt;queue&gt;
+#include &lt;stack&gt;
+
+using namespace std;
+
+int main() {
+    // Kolejka
+    queue&lt;int&gt; kolejka;
+    kolejka.push(1);
+    kolejka.push(2);
+    cout << "Element z przodu kolejki: " << kolejka.front() << endl;
+    kolejka.pop();
+
+    // Stos
+    stack&lt;int&gt; stos;
+    stos.push(1);
+    stos.push(2);
+    cout << "Element z wierzchu stosu: " << stos.top() << endl;
+    stos.pop();
+
+    return 0;
+}</code></pre>
+        </section>
+    </main>
+
+    <footer>
+        <p>Bartosz Kilarski</p>
+        <p>Politechnika Świętokrzyska w Kielcach</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nauka Informatyki poziom Rozszerzony</title>
+    <link rel="stylesheet" href="../../../assets/css/style.css">
+</head>
+<body>
+
+    <nav>
+        <ul>
+            <li>
+                <a href="../teoria.html">Kursy C++</a>
+            </li>
+        </ul>
+    </nav>
+
+    <main>
+        <section>
+            <h1>1. Klasy i obiekty: definicja, tworzenie instancji</h1>
+            <p>Klasa to szablon do tworzenia obiektów, zawierający atrybuty i metody. Obiekty są instancjami klasy. Oto przykład definiowania klasy i tworzenia obiektu:</p>
+            <pre><code>#include &lt;iostream&gt;
+
+using namespace std;
+
+// Definicja klasy
+class Samochod {
+public:
+    // Atrybuty
+    string marka;
+    int rok;
+
+    // Metoda
+    void przedstawSie() {
+        cout << "Samochod marki " << marka << " z roku " << rok << endl;
+    }
+};
+
+int main() {
+    // Tworzenie instancji klasy
+    Samochod mojSamochod;
+    mojSamochod.marka = "Toyota";
+    mojSamochod.rok = 2022;
+
+    // Wywołanie metody
+    mojSamochod.przedstawSie();
+
+    return 0;
+}</code></pre>
+        </section>
+
+        <section>
+            <h1>2. Konstruktor i destruktor: inicjalizacja i sprzątanie obiektów</h1>
+            <p>Konstruktor to specjalna metoda używana do inicjalizacji obiektów. Destruktor to metoda wywoływana w celu sprzątania obiektów przed ich zniszczeniem:</p>
+            <pre><code>#include &lt;iostream&gt;
+
+using namespace std;
+
+// Definicja klasy
+class Przyklad {
+public:
+    // Konstruktor
+    Przyklad() {
+        cout << "Obiekt utworzony!" << endl;
+    }
+
+    // Destruktor
+    ~Przyklad() {
+        cout << "Obiekt zniszczony!" << endl;
+    }
+};
+
+int main() {
+    Przyklad obiekt;  // Wywołanie konstruktora
+
+    return 0;
+}</code></pre>
+        </section>
+
+        <section>
+            <h1>3. Metody i atrybuty: publiczne, prywatne, chronione</h1>
+            <p>Metody i atrybuty klasy mogą mieć różne poziomy dostępu: publiczny, prywatny i chroniony. Oto przykład pokazujący te różnice:</p>
+            <pre><code>#include &lt;iostream&gt;
+
+using namespace std;
+
+// Definicja klasy
+class KontoBankowe {
+private:
+    int numerKonta;
+
+public:
+    // Konstruktor
+    KontoBankowe(int numer) : numerKonta(numer) {}
+
+    // Metoda publiczna
+    void pokazNumer() {
+        cout << "Numer konta: " << numerKonta << endl;
+    }
+
+    // Metoda publiczna
+    void zmienNumer(int nowyNumer) {
+        numerKonta = nowyNumer;
+    }
+};
+
+int main() {
+    KontoBankowe konto(12345);
+    konto.pokazNumer();
+    konto.zmienNumer(67890);
+    konto.pokazNumer();
+
+    return 0;
+}</code></pre>
+        </section>
+
+        <section>
+            <h1>4. Dziedziczenie: podstawy, klasy bazowe i pochodne</h1>
+            <p>Dziedziczenie pozwala na tworzenie nowych klas na podstawie istniejących klas. Klasa pochodna dziedziczy atrybuty i metody klasy bazowej:</p>
+            <pre><code>#include &lt;iostream&gt;
+
+using namespace std;
+
+// Klasa bazowa
+class Zwierze {
+public:
+    void dzwiek() {
+        cout << "Zwierze wydaje dźwięk" << endl;
+    }
+};
+
+// Klasa pochodna
+class Pies : public Zwierze {
+public:
+    void dzwiek() {
+        cout << "Pies szczeka" << endl;
+    }
+};
+
+int main() {
+    Pies mojPies;
+    mojPies.dzwiek();  // Wywołanie metody z klasy pochodnej
+
+    return 0;
+}</code></pre>
+        </section>
+
+        <section>
+            <h1>5. Polimorfizm: funkcje wirtualne, dynamiczne wiązanie</h1>
+            <p>Polimorfizm pozwala na wywoływanie metod klas pochodnych poprzez wskaźnik do klasy bazowej. Funkcje wirtualne umożliwiają dynamiczne wiązanie metod:</p>
+            <pre><code>#include &lt;iostream&gt;
+
+using namespace std;
+
+// Klasa bazowa
+class Figura {
+public:
+    virtual void rysuj() {
+        cout << "Rysuję figurę" << endl;
+    }
+};
+
+// Klasa pochodna
+class Kolo : public Figura {
+public:
+    void rysuj() override {
+        cout << "Rysuję koło" << endl;
+    }
+};
+
+int main() {
+    Figura* figura;
+    Kolo kolo;
+    figura = &kolo;
+
+    figura->rysuj();  // Wywołanie funkcji wirtualnej
+
+    return 0;
+}</code></pre>
+        </section>
+
+        <section>
+            <h1>6. Przykład projektu z użyciem klas</h1>
+            <p>Przykład projektu wykorzystujący klasy do modelowania prostego systemu zarządzania studentami:</p>
+            <pre><code>#include &lt;iostream&gt;
+#include &lt;vector&gt;
+
+using namespace std;
+
+// Klasa Student
+class Student {
+private:
+    string imie;
+    int wiek;
+
+public:
+    Student(string i, int w) : imie(i), wiek(w) {}
+
+    void przedstawSie() {
+        cout << "Imię: " << imie << ", Wiek: " << wiek << endl;
+    }
+};
+
+// Klasa Szkola
+class Szkola {
+private:
+    vector&lt;Student&gt; uczniowie;
+
+public:
+    void dodajStudent(Student s) {
+        uczniowie.push_back(s);
+    }
+
+    void pokazStudentow() {
+        for (Student& s : uczniowie) {
+            s.przedstawSie();
+        }
+    }
+};
+
+int main() {
+    Szkola mojaSzkola;
+    mojaSzkola.dodajStudent(Student("Jan", 20));
+    mojaSzkola.dodajStudent(Student("Anna", 22));
+
+    mojaSzkola.pokazStudentow();
+
+    return 0;
+}</code></pre>
+        </section>
+    </main>
+
+    <footer>
+        <p>Bartosz Kilarski</p>
+        <p>Politechnika Świętokrzyska w Kielcach</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nauka Informatyki poziom Rozszerzony</title>
+    <link rel="stylesheet" href="../../../assets/css/style.css">
+</head>
+<body>
+
+    <nav>
+        <ul>
+            <li>
+                <a href="../teoria.html">Kursy C++</a>
+            </li>
+        </ul>
+    </nav>
+
+    <main>
+        <section>
+            <h1>1. Definicja i deklaracja funkcji</h1>
+            <p>Funkcje w C++ służą do grupowania kodu, który może być wielokrotnie wykorzystywany. Funkcje definiujemy przed funkcją <code>main</code> lub w nagłówkach, a następnie wywołujemy je w funkcji <code>main</code>. Oto przykład prostych funkcji:</p>
+            <pre><code>#include &lt;iostream&gt;
+
+using namespace std;
+
+// Definicja funkcji
+int dodaj(int a, int b) {
+    return a + b;
+}
+
+// Definicja funkcji
+void przywitaj() {
+    cout << "Witaj w lekcji o funkcjach!" << endl;
+}
+
+int main() {
+    int wynik = dodaj(5, 3);  // Wywołanie funkcji dodaj
+    cout << "Wynik dodawania: " << wynik << endl;
+
+    przywitaj();  // Wywołanie funkcji przywitaj
+
+    return 0;
+}</code></pre>
+        </section>
+
+        <section>
+            <h1>2. Parametry funkcji</h1>
+            <p>Funkcje mogą przyjmować parametry, które są przekazywane do funkcji podczas jej wywołania. Parametry można przekazywać przez wartość lub referencję. Przykład:</p>
+            <pre><code>#include &lt;iostream&gt;
+
+using namespace std;
+
+// Funkcja przekazująca parametry przez wartość
+int dodaj(int a, int b) {
+    return a + b;
+}
+
+// Funkcja przekazująca parametry przez referencję
+void zmienWartosc(int& x) {
+    x = 10;
+}
+
+int main() {
+    int wynik = dodaj(5, 3);  // Wywołanie funkcji dodaj
+    cout << "Wynik dodawania: " << wynik << endl;
+
+    int liczba = 5;
+    zmienWartosc(liczba);  // Wywołanie funkcji zmienWartosc
+    cout << "Nowa wartość liczba: " << liczba << endl;
+
+    return 0;
+}</code></pre>
+        </section>
+
+        <section>
+            <h1>3. Zmienne globalne i lokalne</h1>
+            <p>Zmienne mogą być deklarowane wewnątrz funkcji (zmienne lokalne) lub poza funkcjami (zmienne globalne). Zmienne lokalne są dostępne tylko w obrębie funkcji, w której zostały zadeklarowane, podczas gdy zmienne globalne są dostępne w całym programie:</p>
+            <pre><code>#include &lt;iostream&gt;
+
+using namespace std;
+
+int globalna = 20;  // Zmienna globalna
+
+void pokazZmienne() {
+    int lokalna = 30;  // Zmienna lokalna w funkcji
+    cout << "Zmienna globalna w funkcji: " << globalna << endl;
+    cout << "Zmienna lokalna w funkcji: " << lokalna << endl;
+}
+
+int main() {
+    int lokalna = 10;  // Zmienna lokalna w funkcji main
+    cout << "Zmienna globalna w main: " << globalna << endl;
+    cout << "Zmienna lokalna w main: " << lokalna << endl;
+
+    pokazZmienne();  // Wywołanie funkcji pokazZmienne
+
+    return 0;
+}</code></pre>
+        </section>
+
+        <section>
+            <h1>4. Funkcje przeciążone i szablony funkcji</h1>
+            <p>Funkcje przeciążone to funkcje o tej samej nazwie, ale różnych parametrach. Szablony funkcji pozwalają na definiowanie funkcji, które mogą działać z różnymi typami danych:</p>
+            <pre><code>#include &lt;iostream&gt;
+
+using namespace std;
+
+// Funkcja przeciążona
+int dodaj(int a, int b) {
+    return a + b;
+}
+
+double dodaj(double a, double b) {
+    return a + b;
+}
+
+// Szablon funkcji
+template &lt;typename T&gt;
+T maks(T a, T b) {
+    return (a > b) ? a : b;
+}
+
+int main() {
+    cout << "Dodawanie int: " << dodaj(5, 3) << endl;
+    cout << "Dodawanie double: " << dodaj(5.5, 3.3) << endl;
+
+    cout << "Maksymalna wartość: " << maks(5, 3) << endl;
+    cout << "Maksymalna wartość: " << maks(5.5, 3.3) << endl;
+
+    return 0;
+}</code></pre>
+        </section>
+
+        <section>
+            <h1>5. Rekurencja</h1>
+            <p>Rekurencja to technika, w której funkcja wywołuje samą siebie. Może być używana do rozwiązywania problemów, takich jak obliczanie silni czy ciągu Fibonacciego:</p>
+            <pre><code>#include &lt;iostream&gt;
+
+using namespace std;
+
+// Funkcja rekurencyjna do obliczania silni
+int silnia(int n) {
+    if (n <= 1) return 1;
+    return n * silnia(n - 1);
+}
+
+// Funkcja rekurencyjna do obliczania ciągu Fibonacciego
+int fibonacci(int n) {
+    if (n <= 1) return n;
+    return fibonacci(n - 1) + fibonacci(n - 2);
+}
+
+int main() {
+    cout << "Silnia z 5: " << silnia(5) << endl;
+    cout << "5. wyraz ciągu Fibonacciego: " << fibonacci(5) << endl;
+
+    return 0;
+}</code></pre>
+        </section>
+    </main>
+
+    <footer>
+        <p>Bartosz Kilarski</p>
+        <p>Politechnika Świętokrzyska w Kielcach</p>
+    </footer>
+</body>
+</html>

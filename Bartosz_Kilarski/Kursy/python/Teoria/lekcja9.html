@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nauka Informatyki poziom Rozszerzony</title>
+    <link rel="stylesheet" href="../../../assets/css/style.css">
+</head>
+<body>
+
+    <nav>
+        <ul>
+            <li>
+                <a href="../teoria.html">Kursy C++</a>
+            </li>
+        </ul>
+    </nav>
+
+    <main>
+        <section>
+            <h1><strong>1. Wprowadzenie do zarządzania pamięcią: podstawowe pojęcia</strong></h1>
+            <p>W zarządzaniu pamięcią istotne jest rozumienie podstawowych pojęć związanych z alokacją i zwalnianiem pamięci. W C++ zarządzanie pamięcią obejmuje:</p>
+            <ul>
+                <li>Wskaźniki i referencje</li>
+                <li>Dynamiczną alokację pamięci</li>
+                <li>Smart wskaźniki</li>
+                <li>Mechanizmy zarządzania pamięcią w C++11 i późniejszych wersjach</li>
+            </ul>
+        </section>
+
+        <section>
+            <h1><strong>2. Wskaźniki i referencje: definicja, użycie i różnice</strong></h1>
+            <p>Wskaźniki to zmienne przechowujące adresy innych zmiennych, natomiast referencje są aliasami dla zmiennych. Oto przykłady:</p>
+            <pre><code>#include &lt;iostream&gt;
+
+using namespace std;
+
+int main() {
+    int a = 10;
+    int* ptr = &a; // wskaźnik
+    int& ref = a;  // referencja
+
+    cout << "Wartość a: " << a << endl;
+    cout << "Wartość przez wskaźnik: " << *ptr << endl;
+    cout << "Wartość przez referencję: " << ref << endl;
+
+    return 0;
+}</code></pre>
+        </section>
+
+        <section>
+            <h1><strong>3. Dynamiczna alokacja pamięci: new, delete</strong></h1>
+            <p>Dynamiczna alokacja pamięci pozwala na przydzielanie pamięci w trakcie działania programu za pomocą operatorów <code>new</code> i <code>delete</code>. Przykład:</p>
+            <pre><code>#include &lt;iostream&gt;
+
+using namespace std;
+
+int main() {
+    int* ptr = new int(5); // alokacja pamięci
+    cout << "Wartość: " << *ptr << endl;
+    delete ptr; // zwolnienie pamięci
+
+    return 0;
+}</code></pre>
+        </section>
+
+        <section>
+            <h1><strong>4. Smart wskaźniki: std::unique_ptr, std::shared_ptr, std::weak_ptr</strong></h1>
+            <p>Smart wskaźniki zarządzają pamięcią automatycznie, minimalizując ryzyko wycieków pamięci. Oto przykłady:</p>
+            <pre><code>#include &lt;iostream&gt;
+#include &lt;memory&gt;
+
+using namespace std;
+
+int main() {
+    unique_ptr<int> uniqPtr = make_unique<int>(10); // std::unique_ptr
+    cout << "Wartość std::unique_ptr: " << *uniqPtr << endl;
+
+    shared_ptr<int> sharPtr = make_shared<int>(20); // std::shared_ptr
+    cout << "Wartość std::shared_ptr: " << *sharPtr << endl;
+
+    weak_ptr<int> weakPtr = sharPtr; // std::weak_ptr
+    if (auto spt = weakPtr.lock()) {
+        cout << "Wartość std::weak_ptr: " << *spt << endl;
+    }
+
+    return 0;
+}</code></pre>
+        </section>
+
+        <section>
+            <h1><strong>5. Mechanizmy zarządzania pamięcią w C++11 i późniejszych wersjach</strong></h1>
+            <p>C++11 wprowadził nowe mechanizmy zarządzania pamięcią, takie jak smart wskaźniki i funkcje pomocnicze. Przykład użycia:</p>
+            <pre><code>#include &lt;iostream&gt;
+#include &lt;memory&gt;
+
+using namespace std;
+
+int main() {
+    // Przykład użycia std::make_unique
+    unique_ptr<int> ptr = make_unique<int>(30);
+    cout << "Wartość std::make_unique: " << *ptr << endl;
+
+    return 0;
+}</code></pre>
+        </section>
+    </main>
+
+    <footer>
+        <p>Bartosz Kilarski</p>
+        <p>Politechnika Świętokrzyska w Kielcach</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nauka Informatyki poziom Rozszerzony - Funkcje i Zmienne</title>
+    <link rel="stylesheet" href="../../../assets/css/style.css">
+</head>
+<body>
+
+    <nav>
+        <ul>
+            <li>
+                <a href="../teoria.html">Kursy Java</a>
+            </li>
+        </ul>
+    </nav>
+
+<section>
+    <h1>1. Definicja i deklaracja metod</h1>
+    <p>Metoda to blok kodu, który wykonuje określone zadania i może zwracać wynik. Oto przykłady składni:</p>
+    <ul>
+        <li><strong>Składnia metody:</strong> <br><code>public typZwracany nazwaMetody(parametry) { /* kod */ }</code></li>
+        <li><strong>Przykład metody bez parametrów:</strong> <br></li>
+    </ul>
+    <pre><code>public class MetodaExample {
+    public static void main(String[] args) {
+        // Wywolanie metody bezparametrowej
+        przywitaj();
+    }
+    
+    // Definicja metody bezparametrowej
+    public static void przywitaj() {
+        System.out.println("Witaj w programie!");
+    }
+}
+</code></pre>
+
+    <ul>
+        <li><strong>Przykład metody z parametrami:</strong> <br></li>
+    </ul>
+    <pre><code>public class MetodaExample {
+    public static void main(String[] args) {
+        // Wywolanie metody z parametrem
+        powiedzCzesc("Bartosz");
+    }
+    
+    // Definicja metody z parametrem
+    public static void powiedzCzesc(String imie) {
+        System.out.println("Czesc, " + imie + "!");
+    }
+}
+</code></pre>
+</section>
+
+<section>
+    <h1>2. Parametry metod</h1>
+    <p>W Javie prymitywne typy danych są przekazywane przez wartość, a obiekty przez referencję. Oto przykład:</p>
+    <pre><code>public class ParametryExample {
+    public static void main(String[] args) {
+        int liczba = 5; // Deklaracja zmiennej prymitywnej
+        zwiekszLiczbe(liczba); // Wywolanie metody
+        System.out.println("Liczba po wywolaniu metody: " + liczba);
+    }
+    
+    // Metoda zmieniajaca wartosc przekazanej zmiennej
+    public static void zwiekszLiczbe(int x) {
+        x = x + 1; // Zwiekszenie zmiennej
+    }
+}
+</code></pre>
+    <p>Wynik pokazuje, że oryginalna zmienna <code>liczba</code> się nie zmienia, ponieważ jest przekazywana przez wartość.</p>
+</section>
+
+<section>
+    <h1>3. Zmienne globalne i lokalne</h1>
+    <p>Zmienne globalne są dostępne w całym programie, podczas gdy lokalne mają ograniczony zakres. Oto przykład:</p>
+    <pre><code>public class ZmienneExample {
+    // Zmienna globalna
+    static int globalna = 10;
+    
+    public static void main(String[] args) {
+        // Zmienna lokalna
+        int lokalna = 5;
+        System.out.println("Globalna: " + globalna);
+        System.out.println("Lokalna: " + lokalna);
+    }
+}
+</code></pre>
+</section>
+
+<section>
+    <h1>4. Metody przeciążone i generics</h1>
+    <p>W Javie można przeciążać metody, czyli definiować kilka metod o tej samej nazwie, ale różnej liczbie lub typach parametrów. Oto przykład:</p>
+    <pre><code>public class PrzeciazenieExample {
+    public static void main(String[] args) {
+        // Wywolanie metod z roznymi parametrami
+        System.out.println(suma(2, 3)); // Wywolanie metody dla int
+        System.out.println(suma(2.5, 3.5)); // Wywolanie metody dla double
+    }
+    
+    // Przeciazona metoda dla typow int
+    public static int suma(int a, int b) {
+        return a + b;
+    }
+    
+    // Przeciazona metoda dla typow double
+    public static double suma(double a, double b) {
+        return a + b;
+    }
+}
+</code></pre>
+</section>
+
+<section>
+    <h1>5. Rekurencja</h1>
+    <p>Rekurencja to technika, w której metoda wywołuje samą siebie, np. do obliczenia silni:</p>
+    <pre><code>public class RekurencjaExample {
+    public static void main(String[] args) {
+        // Wywolanie metody rekurencyjnej
+        int wynik = silnia(5);
+        System.out.println("Silnia 5 wynosi: " + wynik);
+    }
+    
+    // Metoda obliczajaca silnie
+    public static int silnia(int n) {
+        if (n == 0) {
+            return 1; // Warunek bazowy
+        } else {
+            return n * silnia(n - 1); // Rekurencyjne wywolanie metody
+        }
+    }
+}
+</code></pre>
+</section>
+
+<footer>
+    <p>Bartosz Kilarski</p>
+    <p>Politechnika Świętokrzyska - Kursy Informatyczne</p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,455 @@
+
+* {
+    
+    box-sizing: border-box;
+	margin: 0; 
+    padding: 0;
+}
+
+
+
+
+html{
+    height: 100%;
+	
+     
+}
+
+html, body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #202225;
+	min-height: 100%; 
+}
+
+body {
+    padding-bottom: 100px; /* Dostosuj wysokość w zależności od wysokości stopki */
+}
+
+
+blockquote {
+  display: block;
+  margin-left: 40px;
+
+}
+
+main {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+	justify-content: flex-start;
+    justify-content: center;
+    align-items: center;
+    background-color: #202225;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+	
+	
+}
+
+
+
+
+.game-quiz-container {
+    width: 40rem;
+	max-width: 100%;
+    height: 30rem;
+    background-color: lightgray;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    border-radius: 30px;
+	margin-top: -80px;
+}
+
+
+.game-details-container {
+    width: 80%;
+    height: 4rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.game-details-container h1 {
+    font-size: 1.2rem;
+	
+}
+
+
+.game-question-container {
+    width: 80%;
+    height: 8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid darkgray;
+    border-radius: 25px;
+}
+
+.game-question-container h1 {
+    font-size: 1.1rem;
+    text-align: center;
+    padding: 3px;
+	
+}
+
+
+.game-options-container {
+    width: 80%;
+    height: 10rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+}
+
+
+.game-options-container span {
+    width: 45%;
+    height: 3rem;
+    border: 2px solid darkgray;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+
+span label {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform 0.3s;
+    font-weight: 600;
+    color: black;
+	min-height: 60px;
+
+}
+section {
+    color: white; /* Ustawienie białego koloru tekstu */
+    display: flex;
+    flex-direction: column; /* Elementy jeden pod drugim */
+    text-align: left;        /* Tekst wyrównany do lewej */
+    padding-left: 50px !important;      /* Odstęp od lewej strony */
+    padding-top: 50px !important;       /* Odstęp od góry */
+    width: 100%;
+    height: auto;            /* Sekcja będzie miała wysokość automatycznie dostosowaną do treści */
+    box-sizing: border-box;  /* Uwzględnia padding w szerokości i wysokości */
+	line-height: 1.8
+}
+code {
+    color: #FFFFFF; /* Biały kolor tekstu dla kodu */
+    font-family: 'Courier New', Courier, monospace; /* Monospace dla kodu */
+    font-size: 1rem; /* Rozmiar tekstu */
+	background: #2d2d2d;
+	Padding: 3px;
+}
+
+span label:hover {
+    -ms-transform: scale(1.12);
+    -webkit-transform: scale(1.12);
+    transform: scale(1.12);
+    color: black;
+    background-color: #606060;
+}
+
+
+input[type="radio"] {
+    position: relative;
+    display: none;
+}
+
+input[type=radio]:checked ~ .option {
+    background: #606060;
+}
+
+body.quiz-page {
+    height: 100%;
+    overflow: hidden;  /* Blokada przewijania tylko na stronach quizu */
+}
+
+body:not(.quiz-page) {
+    overflow-y: auto;  /* Włączenie przewijania na innych stronach */
+}
+.next-button-container {
+    width: 50%;
+    height: 3rem;
+    display: flex;
+    justify-content: center;
+}
+
+.next-button-container button {
+    width: 8rem;
+    height: 2rem;
+    border-radius: 10px;
+    background: none;
+    color: rgb(25, 25, 25);
+    font-weight: 600;
+    border: 2px solid gray;
+    cursor: pointer;
+    outline: none;
+}
+
+.next-button-container button:hover {
+    background-color: #606060;
+}
+
+
+.modal-container {
+	display: none; /* Ukrywa modalne okno domyślnie */
+	position: fixed;
+	z-index: 1; 
+	left: 0;
+	top: 0;
+	width: 100%; 
+	height: 100%; 
+	overflow: auto; 
+	background-color: rgba(0,0,0,0.4); /* Lekko przezroczyste tło */
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+
+.modal-content-container {
+    width: 80%; /* Szerokość modalnego okna */
+    max-width: 25rem; /* Maksymalna szerokość modalnego okna */
+    height: auto; /* Automatyczna wysokość, aby dostosować się do zawartości */
+    max-height: 70vh; /* Maksymalna wysokość modalnego okna (70% wysokości okna przeglądarki) */
+    background-color: rgb(43, 42, 42);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    border-radius: 25px;
+    padding: 20px; /* Padding wewnętrzny */
+    box-shadow: 0 0 10px rgba(0,0,0,0.5); /* Cień dla lepszego wyglądu */
+    position: relative;
+    overflow: hidden; /* Ukrywa nadmiar tekstu lub elementów */
+}
+
+.modal-content-container h1 {
+    font-size: 1.3rem;
+    height: 3rem;
+    color: lightgray;
+    text-align: center;
+}
+
+
+.grade-details {
+    width: 15rem;
+    height: 10rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.grade-details p {
+    color: white;
+    text-align: center;
+}
+
+
+.modal-button-container {
+    height: 2rem;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-button-container button {
+    width: 10rem;
+    height: 2rem;
+    background: none;
+    outline: none;
+    border: 1px solid rgb(252, 242, 241);
+    color: white;
+    font-size: 1.1rem;
+    cursor: pointer;
+    border-radius: 20px;
+}
+
+.modal-button-container button:hover {
+    background-color: #0048F0;
+}
+
+
+@media(min-width: 300px) and (max-width: 350px) {
+    .game-quiz-container {
+        width: 90%;
+        height: 80vh;
+    }
+    .game-details-container h1 {
+        font-size: 0.8rem;
+    }
+    .game-question-container {
+		width: 80%;
+		height: 10rem;
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		justify-content: space-around;
+		gap: 10px; /* Odstępy między przyciskami */
+}
+    }
+    .game-question-container h1 {
+        font-size: 0.9rem;
+    }
+    .game-options-container span {
+		width: 45%;
+		height: 4rem;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		
+    }
+    .game-options-container span label {
+        font-size: 0.8rem;
+    }
+    .modal-content-container {
+        width: 90%;
+        height: 25rem;
+    }
+    .modal-content-container h1 {
+        font-size: 1.2rem;
+    }
+}
+
+@media(min-width: 350px) and (max-width: 700px) {
+    .game-quiz-container {
+        width: 90%;
+        height: 80vh
+		
+	}
+	 .
+}
+
+	.option {
+		display: flex;
+		align-items: center; /* Wyśrodkowanie tekstu w pionie */
+		justify-content: center; /* Wyśrodkowanie tekstu w poziomie */
+		width: 100%; /* Przyciski wypełniają dostępne miejsce */
+		box-sizing: border-box; /* Uwzględnia padding i border w szerokości */
+		padding: 10px; /* Wypełnienie wewnętrzne */
+		border-radius: 20px; /* Zaokrąglenie rogów */
+		text-align: center; /* Wyśrodkowanie tekstu */
+		overflow: hidden; /* Ukrywa nadmiar tekstu */
+		white-space: normal; /* Umożliwia zawijanie tekstu */
+		max-height: 3em; /* Maksymalna wysokość (około 2 linie tekstu) */
+		line-height: 1.5em; /* Wysokość linii */
+		font-size: 1rem; /* Początkowy rozmiar czcionki */
+		text-overflow: ellipsis; /* Dodaje "..." dla nadmiarowego tekstu */
+}
+
+header {
+    background-color: #202225;
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
+
+nav {
+    background-color: #555;
+    padding: 10px;
+	max-width: 600px;
+    margin: 0 auto; 
+
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+nav li {
+    margin: 0 15px;
+    text-align: center;
+	position: relative;
+}
+
+nav span {
+    display: block;
+    font-weight: bold;
+    font-size: 18px;
+    color: white;
+}
+
+nav a {
+    text-decoration: none;
+    color: white;
+    padding: 5px 10px;
+    border: 1px solid #555;
+    border-radius: 5px;
+    margin: 0 10px;
+	
+}
+
+.tabs {
+    display: flex;
+    justify-content: center;
+    margin-top: 5px;
+}
+
+section {
+    padding: 20px;
+}
+
+
+
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%; 
+    max-width: 100%; 
+    box-sizing: border-box;  
+}
+
+
+nav li:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 50%;
+    height: 50px;
+	margin-top: -25px;
+    border-right: 2px solid white;
+	
+	margin-right: -18px;
+	
+	
+}
+
+
+.tabs2 {
+            display: flex;
+            flex-direction: column;
+            margin-top: 5px; 
+			text-align: left;
+        }
+
+        .tabs a {
+            margin-bottom: 5px; 
+        }
+		
+		
+.section-break {
+            margin-top: 50px; 
+        }
+		
+		

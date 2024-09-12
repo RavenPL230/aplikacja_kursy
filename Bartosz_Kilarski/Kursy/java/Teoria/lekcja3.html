@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nauka Informatyki poziom Rozszerzony - Instrukcje warunkowe i pętle</title>
+    <link rel="stylesheet" href="../../../assets/css/style.css">
+</head>
+<body>
+
+    <nav>
+        <ul>
+            <li>
+                <a href="../teoria.html">Kursy Java</a>
+            </li>
+        </ul>
+    </nav>
+
+<section>
+    <h1>1. Instrukcje warunkowe</h1>
+ <p>Instrukcje warunkowe umożliwiają podejmowanie decyzji na podstawie spełnienia określonych warunków. W zależności od tego, czy warunek jest prawdziwy, wykonuje się odpowiednie bloki kodu. Oto podstawowe instrukcje warunkowe w Javie:</p>
+    <ul>
+        <li><strong>Instrukcja <code>if</code>:</strong> <br><code>if (warunek) { /* kod */ }</code></li>
+        <li><strong>Instrukcja <code>else if</code>:</strong> <br><code>else if (innyWarunek) { /* kod */ }</code></li>
+        <li><strong>Instrukcja <code>else</code>:</strong> <br><code>else { /* kod */ }</code></li>
+   <br></br>
+   <strong>Przykład: </strong>
+	</ul>
+    <pre><code>public class WarunkiExample {
+    public static void main(String[] args) {
+        int liczba = 10;
+
+        if (liczba > 0) {
+            System.out.println("Liczba jest dodatnia");
+        } else if (liczba < 0) {
+            System.out.println("Liczba jest ujemna");
+        } else {
+            System.out.println("Liczba jest zerem");
+        }
+    }
+}
+</code></pre>
+</section>
+
+<section>
+    <h1>2. Pętle</h1>
+   <p>Pętle pozwalają na wielokrotne wykonanie tego samego bloku kodu, dopóki określony warunek jest prawdziwy. To bardzo przydatna konstrukcja, gdy chcemy powtarzać zadania, np. iterować po elementach kolekcji. Oto podstawowe pętle w Javie:</p>
+    <ul>
+        <li><strong>Pętla <code>for</code>:</strong> <br><code>for (inicjalizacja; warunek; inkrementacja) { /* kod */ }</code></li>
+        <li><strong>Pętla <code>while</code>:</strong> <br><code>while (warunek) { /* kod */ }</code></li>
+        <li><strong>Pętla <code>do-while</code>:</strong> <br><code>do { /* kod */ } while (warunek);</code></li>
+    <br></br>
+   <strong>Przykład: </strong>
+	</ul>
+     <pre><code>public class PetleExample {
+    public static void main(String[] args) {
+        // Petla for
+        for (int i = 0; i < 5; i++) {
+            System.out.println("Petla for: " + i);
+        }
+
+        // Petla while
+        int j = 0;
+        while (j < 5) {
+            System.out.println("Petla while: " + j);
+            j++;
+        }
+
+        // Petla do-while
+        int k = 0;
+        do {
+            System.out.println("Petla do-while: " + k);
+            k++;
+        } while (k < 5);
+    }
+}
+</code></pre>
+</section>
+
+<section>
+    <h1>3. Instrukcje sterujące</h1>
+     <p>Instrukcje sterujące takie jak <code>break</code> i <code>continue</code> pozwalają na bardziej zaawansowaną manipulację przepływem w pętlach. Mogą być używane do przerywania działania pętli lub pomijania niektórych jej iteracji.</p>
+    <ul>
+        <li><strong>Instrukcja <code>break</code>:</strong> <br><code>break;</code></li>
+        <li><strong>Instrukcja <code>continue</code>:</strong> <br><code>continue;</code></li>
+    <br></br>
+   <strong>Przykład: </strong>
+	</ul>
+    <pre><code>public class SterowanieExample {
+    public static void main(String[] args) {
+        // Petla z uzyciem break
+        for (int i = 0; i < 5; i++) {
+            if (i == 3) {
+                break;
+            }
+            System.out.println("Break Example: " + i);
+        }
+
+        // Petla z uzyciem continue
+        for (int i = 0; i < 5; i++) {
+            if (i == 3) {
+                continue;
+            }
+            System.out.println("Continue Example: " + i);
+        }
+    }
+}
+</code></pre>
+</section>
+
+<section>
+    <h1>4. Iteratory</h1>
+    <p>Iteratory są specjalnymi obiektami, które umożliwiają iterację (przechodzenie) po elementach kolekcji, takich jak listy czy zestawy danych. Użycie iteratora jest szczególnie przydatne, gdy chcemy bezpiecznie usunąć elementy podczas iteracji lub gdy operujemy na bardziej skomplikowanych strukturach danych. Każda kolekcja w Javie dostarcza metody do pobrania iteratora.</p>
+    <ul>
+        <li><strong>Inicjalizacja iteratora:</strong> <br><code>Iterator&lt;Type&gt; iterator = kolekcja.iterator();</code> - tworzony jest iterator dla danej kolekcji. Iterator zaczyna swoją pracę od pierwszego elementu kolekcji.</li>
+        <li><strong>Iteracja po elementach:</strong> <br><code>while (iterator.hasNext()) { Type element = iterator.next(); /* kod */ }</code> - metoda <code>hasNext()</code> sprawdza, czy w kolekcji znajdują się jeszcze elementy, a <code>next()</code> pobiera kolejny element.</li>
+    <br></br>
+   <strong>Przykład: </strong>
+	</ul>
+	
+	
+    <pre><code>import java.util.ArrayList;
+import java.util.Iterator;
+
+public class IteratoryExample {
+    public static void main(String[] args) {
+        // Tworzenie nowej ArrayList
+        ArrayList&lt;String&gt; lista = new ArrayList&lt;&gt;();
+        
+        // Dodawanie elementow do listy
+        lista.add("element1");
+        lista.add("element2");
+
+        // Inicjalizacja iteratora
+        Iterator&lt;String&gt; iterator = lista.iterator();
+        
+        // Iterowanie po elementach listy za pomoca iteratora
+        while (iterator.hasNext()) {
+            // Pobieranie kolejnego elementu
+            String element = iterator.next();
+            System.out.println("Iteracja: " + element);
+        }
+    }
+}
+</code></pre>
+</section>
+
+<footer>
+    <p>Bartosz Kilarski</p>
+    <p>Politechnika Świętokrzyska - Kursy Informatyczne</p>
+</footer>
+
+</body>
+</html>

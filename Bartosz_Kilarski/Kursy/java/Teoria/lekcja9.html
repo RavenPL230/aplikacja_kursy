@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nauka Informatyki poziom Rozszerzony</title>
+    <link rel="stylesheet" href="../../../assets/css/style.css">
+</head>
+<body>
+
+   
+
+    <nav>
+        <ul>
+            <li>
+                
+ 		
+  		      <a href="../teoria.html">Kursy Java</a>
+  	        
+            </li>
+        </ul>
+    </nav>
+
+    <section>
+        <h1>1. Funkcje anonimowe (lambda)</h1>
+        <p>Funkcje lambda w Javie pozwalają na przekazywanie kodu jako argumentów. Oto przykład:</p>
+        <br></br>
+		<pre><code>import java.util.function.BiFunction;
+
+public class LambdaExample {
+    public static void main(String[] args) {
+        // Funkcja lambda do dodawania dwoch liczb
+        BiFunction&lt;Integer, Integer, Integer&gt; dodaj = (a, b) -&gt; a + b;
+
+        System.out.println(dodaj.apply(5, 3)); // Wydrukuje: 8
+    }
+}</code></pre>
+
+        <h1>2. Interfejsy funkcyjne</h1>
+        <p>Interfejsy funkcyjne są używane w połączeniu z funkcjami lambda. Przykład:</p>
+        <pre><code>import java.util.function.Function;
+import java.util.function.Predicate;
+
+public class FunctionalInterfaceExample {
+    public static void main(String[] args) {
+        // Funkcja, ktora podnosi liczbe do kwadratu
+        Function&lt;Integer, Integer&gt; kwadrat = x -&gt; x * x;
+        System.out.println(kwadrat.apply(5)); // Wydrukuje: 25
+
+        // Predykat, ktory sprawdza, czy liczba jest parzysta
+        Predicate&lt;Integer&gt; czyParzysta = x -&gt; x % 2 == 0;
+        System.out.println(czyParzysta.test(4)); // Wydrukuje: true
+    }
+}</code></pre>
+
+        <h1>3. Stream API</h1>
+        <p>Stream API w Javie umożliwia przetwarzanie danych w stylu funkcyjnym. Przykład operacji <code>map()</code> i <code>filter()</code>:</p>
+        <pre><code>import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
+
+public class StreamApiExample {
+    public static void main(String[] args) {
+        List&lt;Integer&gt; liczby = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9);
+
+        // Mapowanie: podniesienie kazdej liczby do kwadratu
+        List&lt;Integer&gt; kwadraty = liczby.stream()
+                                           .map(x -&gt; x * x)
+                                           .collect(Collectors.toList());
+        System.out.println(kwadraty); // Wydrukuje: [1, 4, 9, 16, 25, 36, 49, 64, 81]
+
+        // Filtrowanie: wybor liczb wiekszych niz 5
+        List&lt;Integer&gt; wiekszeNizPieci = liczby.stream()
+                                                  .filter(x -&gt; x > 5)
+                                                  .collect(Collectors.toList());
+        System.out.println(wiekszeNizPieci); // Wydrukuje: [6, 7, 8, 9]
+    }
+}</code></pre>
+    </section>
+
+
+    <footer>
+        <p>Bartosz Kilarski</p>
+        <p>Politechnika Świętokrzyska w Kielcach</p>
+    </footer>
+</body>
+</html>

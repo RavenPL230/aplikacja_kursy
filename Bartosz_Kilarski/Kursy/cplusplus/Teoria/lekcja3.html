@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nauka Informatyki poziom Rozszerzony</title>
+    <link rel="stylesheet" href="../../../assets/css/style.css">
+</head>
+<body>
+
+   
+
+    <nav>
+        <ul>
+            <li>
+                
+ 		
+  		      <a href="../teoria.html">Kursy C++</a>
+  	        
+            </li>
+        </ul>
+    </nav>
+
+
+    <section>
+        <ul>
+            <h1><strong>1. Instrukcje warunkowe: `if`, `else if`, `else`:</strong></h1>
+                <p>Instrukcje warunkowe służą do podejmowania decyzji na podstawie spełnionych warunków. Program wykonuje określony blok kodu, jeśli warunek jest prawdziwy.</p>
+                <pre><code>#include &lt;iostream&gt;
+
+using namespace std;
+
+int main() {
+    int x = 10;
+
+    if (x > 0) {
+        cout << "x jest dodatnia" << endl;  // Wykonane, gdy x jest większe od 0
+    } else if (x < 0) {
+        cout << "x jest ujemna" << endl;  // Wykonane, gdy x jest mniejsze od 0
+    } else {
+        cout << "x jest równa zero" << endl;  // Wykonane, gdy x jest równe 0
+    }
+
+    return 0;
+}</code></pre>
+            
+            <h1><strong>2. Pętle: `for`, `while`, `do-while`:</strong></h1>
+                <p>Pętle pozwalają na wielokrotne wykonywanie tego samego bloku kodu. Typ pętli zależy od warunków jej zakończenia.</p>
+                <pre><code>#include &lt;iostream&gt;
+
+using namespace std;
+
+int main() {
+    // Pętla for
+    for (int i = 0; i < 5; ++i) {
+        cout << i << " ";
+    }
+    cout << endl;
+
+    // Pętla while
+    int j = 0;
+    while (j < 5) {
+        cout << j << " ";
+        ++j;
+    }
+    cout << endl;
+
+    // Pętla do-while
+    int k = 0;
+    do {
+        cout << k << " ";
+        ++k;
+    } while (k < 5);
+    cout << endl;
+
+    return 0;
+}</code></pre>
+            
+            <h1><strong>3. Instrukcje sterujące: `break`, `continue`:</strong></h1>
+                <p>Instrukcje sterujące `break` i `continue` służą do zmiany przebiegu pętli. `break` przerywa pętlę, podczas gdy `continue` pomija resztę kodu w danej iteracji i przechodzi do następnej.</p>
+                <pre><code>#include &lt;iostream&gt;
+
+using namespace std;
+
+int main() {
+    // Przykład użycia break
+    for (int i = 0; i < 10; ++i) {
+        if (i == 5) {
+            break;  // Przerywa pętlę, gdy i jest równe 5
+        }
+        cout << i << " ";
+    }
+    cout << endl;
+
+    // Przykład użycia continue
+    for (int i = 0; i < 10; ++i) {
+        if (i % 2 == 0) {
+            continue;  // Pomija resztę kodu w pętli, gdy i jest liczbą parzystą
+        }
+        cout << i << " ";
+    }
+    cout << endl;
+
+    return 0;
+}</code></pre>
+            
+            <h1><strong>4. Iteratory: podstawowe operacje i iteracja po kolekcjach:</strong></h1>
+                <p>Iteratory umożliwiają przechodzenie przez elementy kolekcji, takich jak wektory i listy. Oto przykłady podstawowych operacji:</p>
+                <pre><code>#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;list&gt;
+
+using namespace std;
+
+int main() {
+    // Iteracja po wektorze
+    vector<int> vec = {1, 2, 3, 4, 5};
+    for (vector<int>::iterator it = vec.begin(); it != vec.end(); ++it) {
+        cout << *it << " ";
+    }
+    cout << endl;
+
+    // Iteracja po liście
+    list<int> lst = {1, 2, 3, 4, 5};
+    for (list<int>::iterator it = lst.begin(); it != lst.end(); ++it) {
+        cout << *it << " ";
+    }
+    cout << endl;
+
+    return 0;
+}</code></pre>
+            
+        </ul>
+    </section>
+
+    <footer>
+        <p>Bartosz Kilarski</p>
+        <p>Politechnika Świętokrzyska w Kielcach</p>
+    </footer>
+</body>
+</html>

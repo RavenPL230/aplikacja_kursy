@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nauka Informatyki poziom Rozszerzony</title>
+    <link rel="stylesheet" href="../../../assets/css/style.css">
+</head>
+<body>
+
+   
+
+    <nav>
+        <ul>
+            <li>
+                
+ 		
+  		      <a href="../teoria.html">Kursy Java</a>
+  	        
+            </li>
+        </ul>
+    </nav>
+
+
+<section>
+
+
+    
+    <h1>1. Algorytmy sortowania</h1>
+    
+    <h3>Sortowanie przez wstawianie</h3>
+    <p>Sortowanie przez wstawianie jest prostym algorytmem sortowania, który działa poprzez budowanie posortowanej sekcji tablicy jeden element na raz. Działa dobrze dla małych zbiorów danych.</p>
+    <pre><code>/* Przykład: Sortowanie przez wstawianie */
+public class SortowaniePrzezWstawianie {
+    public static void main(String[] args) {
+        int[] tablica = {5, 2, 9, 1, 5, 6};
+        sortujPrzezWstawianie(tablica);
+        for (int liczba : tablica) {
+            System.out.print(liczba + " ");
+        }
+    }
+
+    public static void sortujPrzezWstawianie(int[] tablica) {
+        for (int i = 1; i < tablica.length; i++) {
+            int klucz = tablica[i];
+            int j = i - 1;
+            while (j >= 0 && tablica[j] > klucz) {
+                tablica[j + 1] = tablica[j];
+                j--;
+            }
+            tablica[j + 1] = klucz;
+        }
+    }
+}
+</code></pre>
+    
+    <h3>Sortowanie szybkie (Quick Sort)</h3>
+    <p>Sortowanie szybkie jest algorytmem dziel i zwyciężaj. Dzieli tablicę na mniejsze podtablice, sortuje je i łączy wyniki. Jest bardziej efektywne niż sortowanie przez wstawianie dla dużych zbiorów danych.</p>
+    <pre><code>/* Przykład: Sortowanie szybkie */
+public class SortowanieSzybkie {
+    public static void main(String[] args) {
+        int[] tablica = {10, 7, 8, 9, 1, 5};
+        sortujSzybko(tablica, 0, tablica.length - 1);
+        for (int liczba : tablica) {
+            System.out.print(liczba + " ");
+        }
+    }
+
+    public static void sortujSzybko(int[] tablica, int poczatek, int koniec) {
+        if (poczatek < koniec) {
+            int indeksPartycji = podziel(tablica, poczatek, koniec);
+            sortujSzybko(tablica, poczatek, indeksPartycji - 1);
+            sortujSzybko(tablica, indeksPartycji + 1, koniec);
+        }
+    }
+
+    private static int podziel(int[] tablica, int poczatek, int koniec) {
+        int pivot = tablica[koniec];
+        int i = (poczatek - 1);
+        for (int j = poczatek; j < koniec; j++) {
+            if (tablica[j] <= pivot) {
+                i++;
+                int temp = tablica[i];
+                tablica[i] = tablica[j];
+                tablica[j] = temp;
+            }
+        }
+        int temp = tablica[i + 1];
+        tablica[i + 1] = tablica[koniec];
+        tablica[koniec] = temp;
+        return i + 1;
+    }
+}
+</code></pre>
+    
+    <h1>2. Wyszukiwanie binarne</h1>
+    <p>Wyszukiwanie binarne jest algorytmem przeszukiwania posortowanej tablicy, który działa w czasie O(log n). Działa poprzez dzielenie tablicy na pół i porównywanie klucza z elementem środkowym.</p>
+    <pre><code>/* Przyklad: Wyszukiwanie binarne */
+public class WyszukiwanieBinarne {
+    public static void main(String[] args) {
+        int[] tablica = {1, 2, 3, 4, 5, 6, 7, 8, 9};
+        int klucz = 5;
+        int wynik = wyszukajBinarnie(tablica, klucz);
+        System.out.println("Element znaleziony na indeksie: " + wynik);
+    }
+
+    public static int wyszukajBinarnie(int[] tablica, int klucz) {
+        int lewy = 0;
+        int prawy = tablica.length - 1;
+        while (lewy <= prawy) {
+            int srodkowy = lewy + (prawy - lewy) / 2;
+            if (tablica[srodkowy] == klucz) {
+                return srodkowy;
+            }
+            if (tablica[srodkowy] < klucz) {
+                lewy = srodkowy + 1;
+            } else {
+                prawy = srodkowy - 1;
+            }
+        }
+        return -1; // Element nie zostal znaleziony
+    }
+}
+</code></pre>
+    
+    <h1>3. Tabele haszujące</h1>
+    <p>Tabele haszujące pozwalają na szybki dostęp do danych poprzez zastosowanie funkcji haszującej, która mapuje klucz na indeks w tablicy. W Javie najczęściej używa się <code>HashMap</code>.</p>
+    <pre><code>/* Przyklad: HashMap */
+import java.util.*;
+
+public class TabelaHaszujaca {
+    public static void main(String[] args) {
+        // Tworzenie HashMap z typami generycznymi String i Integer
+        HashMap&lt;String, Integer&gt; mapa = new HashMap&lt;&gt;();
+        mapa.put("Jablko", 1);
+        mapa.put("Banana", 2);
+        mapa.put("Pomarancza", 3);
+
+        // Iterowanie po wpisach w mapie
+        for (Map.Entry&lt;String, Integer&gt; wpis : mapa.entrySet()) {
+            System.out.println(wpis.getKey() + ": " + wpis.getValue());
+        }
+
+        // Sprawdzanie istnienia klucza
+        if (mapa.containsKey("Banana")) {
+            System.out.println("Mapa zawiera Banana.");
+        }
+    }
+}</code></pre>
+    
+    <h1>4. Kolejki (Queue) i stosy (Stack)</h1>
+    <p>Kolejki i stosy to podstawowe struktury danych. Kolejka (Queue) działa na zasadzie FIFO (First In, First Out), podczas gdy stos (Stack) działa na zasadzie LIFO (Last In, First Out).</p>
+    
+    <h3>Stos (Stack)</h3>
+    <pre><code>/* Przyklad: Stos */
+import java.util.Stack;
+
+public class Stos {
+    public static void main(String[] args) {
+        // Tworzenie stosu z typem generycznym String
+        Stack<String> stos = new Stack<>();
+
+        // Dodawanie elementow do stosu
+        stos.push("Pierwszy");
+        stos.push("Drugi");
+        stos.push("Trzeci");
+
+        // Usuwanie elementow ze stosu i wyswietlanie ich
+        while (!stos.isEmpty()) {
+            System.out.println(stos.pop());
+        }
+    }
+}
+
+</code></pre>
+    
+    <h3>Kolejka (Queue)</h3>
+    <pre><code>/* Przykład: Kolejka */
+import java.util.LinkedList;
+import java.util.Queue;
+
+public class Kolejka {
+    public static void main(String[] args) {
+        // Tworzenie kolejki z typem generycznym String
+        Queue<String> kolejka = new LinkedList<>();
+
+        // Dodawanie elementow do kolejki
+        kolejka.add("Pierwszy");
+        kolejka.add("Drugi");
+        kolejka.add("Trzeci");
+
+        // Usuwanie elementow z kolejki i wyswietlanie ich
+        while (!kolejka.isEmpty()) {
+            System.out.println(kolejka.poll());
+        }
+    }
+}
+</code></pre>
+
+</section>
+
+    <footer>
+        <p>Bartosz Kilarski</p>
+        <p>Politechnika Świętokrzyska w Kielcach</p>
+    </footer>
+</body>
+</html>

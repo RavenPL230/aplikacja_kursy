@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nauka Informatyki poziom Rozszerzony</title>
+    <link rel="stylesheet" href="../../../assets/css/style.css">
+</head>
+<body>
+
+   
+
+    <nav>
+        <ul>
+            <li>
+                
+ 		
+  		      <a href="../teoria.html">Kursy Java</a>
+  	        
+            </li>
+        </ul>
+    </nav>
+
+
+<section>
+
+    <h1>1. Otwieranie i zamykanie plików</h1>
+    <p>Do otwierania i zamykania plików w Javie używamy klas takich jak <code>FileReader</code>, <code>FileWriter</code>, <code>BufferedReader</code> i <code>BufferedWriter</code>. Oto przykłady ich użycia:</p>
+    
+    <pre><code>/* Przykład: Otwieranie i zamykanie plików */
+import java.io.*;
+
+public class PracaZPlikami {
+    public static void main(String[] args) {
+        // Otwieranie pliku do odczytu
+        try (BufferedReader bufferedReader = new BufferedReader(new FileReader("plik.txt"))) {
+            String linia;
+            while ((linia = bufferedReader.readLine()) != null) {
+                System.out.println(linia);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        // Otwieranie pliku do zapisu
+        try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter("plik.txt"))) {
+            bufferedWriter.write("Przykladowy tekst");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
+</code></pre>
+
+    <p>W powyższym przykładzie:</p>
+    <ul>
+        <li>Plik o nazwie <code>plik.txt</code> jest otwierany do odczytu za pomocą <code>BufferedReader</code> i <code>FileReader</code>. Odczytujemy linie z pliku i wyświetlamy je na konsoli.</li>
+        <li>W drugiej części kodu plik <code>plik.txt</code> jest otwierany do zapisu za pomocą <code>BufferedWriter</code> i <code>FileWriter</code>. Zawartość pliku zostaje nadpisana tekstem "Przykladowy tekst".</li>
+    </ul>
+
+    <h1>2. Odczytywanie i zapisywanie danych</h1>
+    <p>Podstawowe operacje na plikach obejmują odczytywanie i zapisywanie danych. Wykorzystując klasy <code>BufferedReader</code> i <code>BufferedWriter</code>, możemy efektywnie przetwarzać dane tekstowe w plikach.</p>
+    
+    <pre><code>/* Przykład: Odczytywanie i zapisywanie danych */
+import java.io.*;
+
+public class OdczytIZapis {
+    public static void main(String[] args) {
+        // Odczytywanie danych z pliku
+        try (BufferedReader bufferedReader = new BufferedReader(new FileReader("plik.txt"))) {
+            String linia;
+            while ((linia = bufferedReader.readLine()) != null) {
+                System.out.println(linia);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        // Zapisywanie danych do pliku
+        try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter("plik.txt"))) {
+            bufferedWriter.write("Nowy tekst");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
+</code></pre>
+
+    <p>W tym przykładzie:</p>
+    <ul>
+        <li>Najpierw otwieramy plik <code>plik.txt</code> do odczytu i wypisujemy jego zawartość na konsolę.</li>
+        <li>Następnie otwieramy ten sam plik do zapisu. Zawartość pliku zostaje zastąpiona tekstem "Nowy tekst".</li>
+    </ul>
+
+    <h1>3. Użycie try-with-resources do zarządzania zasobami</h1>
+    <p>Try-with-resources to konstrukcja w Javie, która automatycznie zamyka zasoby po zakończeniu ich używania. Jest to przydatne do zarządzania plikami, aby upewnić się, że pliki są prawidłowo zamykane po ich użyciu.</p>
+    
+    <pre><code>/* Przykład: Try-with-resources */
+import java.io.*;
+
+public class TryWithResources {
+    public static void main(String[] args) {
+        try (BufferedReader bufferedReader = new BufferedReader(new FileReader("plik.txt"))) {
+            String linia;
+            while ((linia = bufferedReader.readLine()) != null) {
+                System.out.println(linia);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
+</code></pre>
+
+    <p>W tym przykładzie:</p>
+    <ul>
+        <li>Używamy try-with-resources do otwierania pliku <code>plik.txt</code> w trybie odczytu.</li>
+        <li>Po zakończeniu pracy z plikiem, zasób (pliki) zostaje automatycznie zamknięty, nawet jeśli wystąpi wyjątek.</li>
+    </ul>
+
+</section>
+
+    <footer>
+        <p>Bartosz Kilarski</p>
+        <p>Politechnika Świętokrzyska w Kielcach</p>
+    </footer>
+</body>
+</html>

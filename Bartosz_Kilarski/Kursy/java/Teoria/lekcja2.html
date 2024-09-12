@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nauka Informatyki poziom Rozszerzony</title>
+    <link rel="stylesheet" href="../../../assets/css/style.css">
+</head>
+<body>
+
+    <nav>
+        <ul>
+            <li>
+                <a href="../teoria.html">Kursy Java</a>
+            </li>
+        </ul>
+    </nav>
+
+<section>
+    <h1>1. Tablice</h1>
+    <p>Tablice w Javie są strukturami danych, które pozwalają na przechowywanie wielu elementów tego samego typu. Oto jak można je zadeklarować, zainicjalizować i używać:</p>
+    <ul>
+        <li><strong>Deklaracja:</strong> <br><code>int[] tablica;</code></li>
+        <li><strong>Inicjalizacja:</strong> <br><code>tablica = new int[10];</code></li>
+        <li><strong>Indeksowanie:</strong> <br><code>tablica[0] = 5;</code></li>
+        <li><strong>Operacje podstawowe:</strong>
+            <ul>
+                <li><strong>Wypełnianie:</strong> <br><code>Arrays.fill(tablica, 0);</code></li>
+                <li><strong>Przeglądanie:</strong> <br><code>for (int i : tablica) { System.out.println(i); }</code></li>
+            </ul>
+            <blockquote>
+                <ul>
+                    <li><strong>Wypełnianie:</strong> <br><code>Arrays.fill(tablica, 0);</code></li>
+                    <li><strong>Przeglądanie:</strong> <br><code>for (int i : tablica) { System.out.println(i); }</code></li>
+                </ul>
+            </blockquote>
+        </li>
+    </ul>
+	<br></br>
+    <pre><code>import java.util.Arrays;
+
+public class TabliceExample {
+    public static void main(String[] args) {
+        // Deklaracja
+        int[] tablica;
+
+        // Inicjalizacja
+        tablica = new int[10];
+
+        // Indeksowanie
+        tablica[0] = 5;
+
+        // Wypelnianie
+        Arrays.fill(tablica, 0);
+
+        // Przegladanie
+        for (int i : tablica) {
+            System.out.println(i);
+        }
+    }
+}
+</code></pre>
+</section>
+
+<section>
+    <h1>2. Listy (ArrayList)</h1>
+    <p>ArrayList jest dynamiczną strukturą danych, która może zmieniać swoją wielkość w czasie działania programu. Oto podstawowe operacje na ArrayList:</p>
+    <ul>
+        <li><strong>Dynamiczna alokacja:</strong> <br><code>ArrayList&lt;String&gt; lista = new ArrayList&lt;&gt;();</code></li>
+        <li><strong>Dodawanie:</strong> <br><code>lista.add("element");</code></li>
+        <li><strong>Usuwanie:</strong> <br><code>lista.remove("element");</code></li>
+        <li><strong>Iteracja:</strong>
+            <ul>
+			<blockquote>
+                <li><strong>Za pomocą pętli for:</strong> <br><code>for (String element : lista) { System.out.println(element); }</code></li>
+                <li><strong>Za pomocą iteratora:</strong> <br><code>Iterator&lt;String&gt; iterator = lista.iterator(); while (iterator.hasNext()) { System.out.println(iterator.next()); }</code></li>
+            </blockquote>
+			</ul>
+        </li>
+    </ul>
+	<br></br>
+    <pre><code>import java.util.ArrayList;
+import java.util.Iterator;
+
+public class ArrayListExample {
+    public static void main(String[] args) {
+        // Dynamiczna alokacja z uzyciem generykow
+        ArrayList&lt;String&gt; lista = new ArrayList&lt;&gt;();
+
+        // Dodawanie
+        lista.add("element");
+
+        // Usuwanie (usuń jeśli chcesz zobaczyć wynik)
+        lista.remove("element");
+
+        // Iteracja za pomoca petli for-each
+        for (String element : lista) {
+            System.out.println(element);
+        }
+
+        // Iteracja za pomoca iteratora
+        Iterator&lt;String&gt; iterator = lista.iterator();
+        while (iterator.hasNext()) {
+            System.out.println(iterator.next());
+        }
+    }
+}</code></pre>
+</section>
+
+<section>
+    <h1>3. Zbiory (HashSet, TreeSet)</h1>
+    <p>Zbiory w Javie są używane do przechowywania unikalnych elementów. HashSet i TreeSet są różnymi implementacjami:</p>
+    <ul>
+        <li><strong>HashSet:</strong> <br><code>HashSet&lt;String&gt; set = new HashSet&lt;&gt;();</code></li>
+        <li><strong>Dodawanie i usuwanie:</strong> <br><code>set.add("element");</code> <br><code>set.remove("element");</code></li>
+        <li><strong>Sprawdzanie unikalności:</strong> HashSet zapewnia, że żaden element nie jest powtarzany.</li>
+        <li><strong>TreeSet:</strong> <br><code>TreeSet&lt;String&gt; sortedSet = new TreeSet&lt;&gt;();</code></li>
+        <li><strong>Operacje na TreeSet:</strong> TreeSet sortuje elementy automatycznie. <br><code>sortedSet.add("element");</code></li>
+    </ul>
+	<br></br>
+      <pre><code>import java.util.HashSet;
+import java.util.TreeSet;
+
+public class SetExample {
+    public static void main(String[] args) {
+        // HashSet z uzyciem generykow
+        HashSet&lt;String&gt; set = new HashSet&lt;&gt;();
+
+        // Dodawanie i usuwanie
+        set.add("element");
+        set.remove("element");
+
+        // Sprawdzanie unikalnosci
+        System.out.println("HashSet: " + set);
+
+        // TreeSet
+        TreeSet&lt;String&gt; sortedSet = new TreeSet&lt;&gt;();
+
+        // Dodawanie
+        sortedSet.add("element");
+
+        // Operacje na TreeSet
+        System.out.println("TreeSet: " + sortedSet);
+    }
+}</code></pre>
+</section>
+
+<section>
+    <h1>4. Mapy (HashMap, TreeMap)</h1>
+    <p>Mapy przechowują dane w formie par klucz-wartość:</p>
+    <ul>
+        <li><strong>HashMap:</strong> <br><code>HashMap&lt;String, Integer&gt; map = new HashMap&lt;&gt;();</code></li>
+        <li><strong>Dodawanie i usuwanie:</strong> <br><code>map.put("klucz", 10);</code> <br><code>map.remove("klucz");</code></li>
+        <li><strong>Odczytywanie wartości:</strong> <br><code>int value = map.get("klucz");</code></li>
+        <li><strong>TreeMap:</strong> <br><code>TreeMap&lt;String, Integer&gt; sortedMap = new TreeMap&lt;&gt;();</code></li>
+        <li><strong>Operacje na TreeMap:</strong> TreeMap sortuje klucze automatycznie. <br><code>sortedMap.put("klucz", 10);</code></li>
+    </ul>
+<br></br>
+    <pre><code>import java.util.HashMap;
+import java.util.TreeMap;
+
+public class MapExample {
+    public static void main(String[] args) {
+        // HashMap z uzyciem generykow
+        HashMap&lt;String, Integer&gt; map = new HashMap&lt;&gt;();
+
+        // Dodawanie i usuwanie
+        map.put("klucz", 10);
+        map.remove("klucz");
+
+        // Odczytywanie wartosci
+        // Sprawdzanie, czy klucz istnieje w mapie
+        Integer value = map.get("klucz");
+        if (value != null) {
+            System.out.println("HashMap Value: " + value);
+        } else {
+            System.out.println("HashMap: Klucz nie istnieje");
+        }
+
+        // TreeMap z uzyciem generykow
+        TreeMap&lt;String, Integer&gt; sortedMap = new TreeMap&lt;&gt;();
+
+        // Dodawanie
+        sortedMap.put("klucz", 10);
+
+        // Operacje na TreeMap
+        System.out.println("TreeMap: " + sortedMap);
+    }
+}
+</code></pre>
+</section>
+
+<section>
+    <h1>5. Napisy (String)</h1>
+    <p>String w Javie jest używany do przechowywania i manipulacji tekstem:</p>
+    <ul>
+        <li><strong>Tworzenie napisu:</strong> <br><code>String str = "Hello, World!";</code></li>
+        <li><strong>Manipulacja:</strong>
+            <ul>
+			<blockquote>
+                <li><strong>Łączenie:</strong> <br><code>String result = str.concat(" Welcome!");</code></li>
+                <li><strong>Podział:</strong> <br><code>String[] parts = str.split(",");</code></li>
+                <li><strong>Znajdowanie:</strong> <br><code>int index = str.indexOf("World");</code></li>
+            </blockquote>
+			</ul>
+        </li>
+    </ul>
+	<br></br>
+    <pre><code>public class StringExample {
+    public static void main(String[] args) {
+        // Tworzenie napisu
+        String str = "Hello, World!";
+
+        // Manipulacja
+        // Laczenie
+        String result = str.concat(" Welcome!");
+
+        // Podzial
+        String[] parts = str.split(",");
+
+        // Znajdowanie
+        int index = str.indexOf("World");
+
+        // Wyjscie
+        System.out.println("Result: " + result);
+        System.out.println("Parts: " + String.join(", ", parts));
+        System.out.println("Index: " + index);
+    }
+}
+</code></pre>
+</section>
+
+<footer>
+    <p>Bartosz Kilarski</p>
+    <p>Politechnika Świętokrzyska - Kursy Informatyczne</p>
+</footer>
+
+</body>
+</html>

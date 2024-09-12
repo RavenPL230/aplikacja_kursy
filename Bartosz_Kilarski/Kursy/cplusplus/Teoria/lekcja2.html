@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nauka Informatyki poziom Rozszerzony</title>
+    <link rel="stylesheet" href="../../../assets/css/style.css">
+</head>
+<body>
+
+   
+
+    <nav>
+        <ul>
+            <li>
+                
+ 		
+  		      <a href="../teoria.html">Kursy C++</a>
+  	        
+            </li>
+        </ul>
+    </nav>
+
+
+
+<section>
+    <ul>
+        <h1><strong>1. Tablice:</strong></h1>
+            <p>Tablice to struktury danych, które przechowują wiele elementów tego samego typu. Deklarujemy je z określoną liczbą elementów, które możemy następnie inicjalizować i modyfikować. Poniżej znajdują się podstawowe operacje na tablicach:</p>
+            <pre><code>#include &lt;iostream&gt;
+
+using namespace std;
+
+int main() {
+    int arr[5];  // Deklaracja
+    int arr[5] = {1, 2, 3, 4, 5};  // Inicjalizacja
+    int value = arr[2];  // Indeksowanie
+    arr[0] = 10;  // Zmiana wartości
+
+    return 0;
+}</code></pre>
+        
+        <h1><strong>2. Wektory (vector):</strong></h1>
+            <p>Wektory to dynamiczne tablice, które mogą zmieniać rozmiar w trakcie działania programu. Poniżej pokazano, jak inicjalizować wektor, dodawać i usuwać elementy oraz iterować po jego zawartości:</p>
+            <pre><code>#include &lt;iostream&gt;
+#include &lt;vector&gt;
+
+using namespace std;
+
+int main() {
+    vector<int> vec = {1, 2, 3};  // Inicjalizacja wektora
+    vec.push_back(4);  // Dodawanie elementu na końcu
+    vec.pop_back();  // Usuwanie ostatniego elementu
+    for(int i : vec) { cout << i << " "; }  // Iteracja po elementach wektora i ich wyświetlanie
+
+    return 0;
+}</code></pre>
+        
+        <h1><strong>3. Listy (list):</strong></h1>
+            <p>Listy to struktury danych, które przechowują elementy w sposób nieuporządkowany. Umożliwiają łatwe dodawanie i usuwanie elementów w dowolnym miejscu. Oto przykłady podstawowych operacji na listach:</p>
+            <pre><code>#include &lt;iostream&gt;
+#include &lt;list&gt;
+
+using namespace std;
+
+int main() {
+    list<int> lst = {1, 2, 3};  // Inicjalizacja listy
+    lst.push_back(4);  // Dodawanie elementu na końcu
+    lst.pop_front();  // Usuwanie pierwszego elementu
+    for(int i : lst) { cout << i << " "; }  // Iteracja po elementach listy i ich wyświetlanie
+
+    return 0;
+}</code></pre>
+        
+        <h1><strong>4. Mapy (map):</strong></h1>
+            <p>Mapy to struktury danych przechowujące pary klucz-wartość. Każdy klucz jest unikalny, a wartości mogą być dowolnego typu. Oto jak można dodawać, usuwać i iterować po parach klucz-wartość w mapach:</p>
+            <pre><code>#include &lt;iostream&gt;
+#include &lt;map&gt;
+
+using namespace std;
+
+int main() {
+    map<int, string> mp;
+    mp[1] = "One";  // Dodawanie pary klucz-wartość
+    mp[2] = "Two";
+    for(const auto& pair : mp) { cout << pair.first << ": " << pair.second << endl; }  // Iteracja po parach klucz-wartość
+
+    return 0;
+}</code></pre>
+        
+        <h1><strong>5. Zbiory (set):</strong></h1>
+            <p>Zbiory to struktury danych przechowujące unikalne elementy. Nie pozwalają na duplikaty i zapewniają szybki dostęp do elementów. Oto przykłady podstawowych operacji na zbiorach:</p>
+            <pre><code>#include &lt;iostream&gt;
+#include &lt;set&gt;
+
+using namespace std;
+
+int main() {
+    set<int> s = {1, 2, 3};  // Inicjalizacja zbioru
+    s.insert(4);  // Dodawanie elementu
+    s.erase(2);  // Usuwanie elementu
+    for(int i : s) { cout << i << " "; }  // Iteracja po elementach zbioru i ich wyświetlanie
+
+    return 0;
+}</code></pre>
+        
+        <h1><strong>6. Napisy (string):</strong></h1>
+            <p>Napisy to sekwencje znaków, które można manipulować na wiele sposobów. Poniżej znajdują się przykłady operacji na napisach, takich jak łączenie, wyodrębnianie podciągów i wyświetlanie:</p>
+            <pre><code>#include &lt;iostream&gt;
+#include &lt;string&gt;
+
+using namespace std;
+
+int main() {
+    string str = "Hello";
+    str += " World";  // Łączenie napisów
+    cout << str << endl;  // Wyświetlanie napisu
+    string substr = str.substr(0, 5);  // Wyodrębnianie części napisu (od indeksu 0, długość 5)
+    cout << substr << endl;
+
+    return 0;
+}</code></pre>
+        
+    </ul>
+</section>
+
+
+    <footer>
+        <p>Bartosz Kilarski</p>
+        <p>Politechnika Świętokrzyska w Kielcach</p>
+    </footer>
+</body>
+</html>

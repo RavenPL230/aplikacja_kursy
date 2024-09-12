@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nauka Informatyki poziom Rozszerzony</title>
+    <link rel="stylesheet" href="../../../assets/css/style.css">
+</head>
+<body>
+
+    <nav>
+        <ul>
+            <li>
+                <a href="../teoria.html">Kursy C++</a>
+            </li>
+        </ul>
+    </nav>
+
+    <main>
+        <section>
+            <h1>1. Otwieranie i zamykanie plików: ifstream, ofstream</h1>
+            <p>W C++ do pracy z plikami używamy klas <code>ifstream</code> (do odczytu) i <code>ofstream</code> (do zapisu). Oto przykład otwierania i zamykania pliku:</p>
+            <pre><code>#include &lt;iostream&gt;
+#include &lt;fstream&gt;
+
+using namespace std;
+
+int main() {
+    // Otwieranie pliku do zapisu
+    ofstream plikDoZapisu("przykladowy.txt");
+    if (plikDoZapisu.is_open()) {
+        plikDoZapisu << "Witaj, świecie!" << endl;
+        plikDoZapisu.close();  // Zamknięcie pliku
+    } else {
+        cout << "Nie można otworzyć pliku do zapisu." << endl;
+    }
+
+    // Otwieranie pliku do odczytu
+    ifstream plikDoOdczytu("przykladowy.txt");
+    if (plikDoOdczytu.is_open()) {
+        string linia;
+        while (getline(plikDoOdczytu, linia)) {
+            cout << linia << endl;
+        }
+        plikDoOdczytu.close();  // Zamknięcie pliku
+    } else {
+        cout << "Nie można otworzyć pliku do odczytu." << endl;
+    }
+
+    return 0;
+}</code></pre>
+        </section>
+
+        <section>
+            <h1>2. Tryby pracy z plikami: odczyt, zapis, dopisywanie</h1>
+            <p>Pliki mogą być otwierane w różnych trybach: odczyt (in), zapis (out), oraz dopisywanie (app). Oto przykłady:</p>
+            <pre><code>#include &lt;iostream&gt;
+#include &lt;fstream&gt;
+
+using namespace std;
+
+int main() {
+    // Tryb zapisu (nadpisanie pliku)
+    ofstream plik("przykladowy.txt", out);
+    plik << "Tekst do zapisu" << endl;
+    plik.close();
+
+    // Tryb dopisywania
+    ofstream plikDopisywanie("przykladowy.txt", app);
+    plikDopisywanie << "Tekst dopisany" << endl;
+    plikDopisywanie.close();
+
+    // Tryb odczytu
+    ifstream plikOdczyt("przykladowy.txt", in);
+    string linia;
+    while (getline(plikOdczyt, linia)) {
+        cout << linia << endl;
+    }
+    plikOdczyt.close();
+
+    return 0;
+}</code></pre>
+        </section>
+
+        <section>
+            <h1>3. Odczytywanie i zapisywanie danych: operacje podstawowe</h1>
+            <p>Odczytywanie i zapisywanie danych w plikach można wykonać za pomocą podstawowych operacji, takich jak <code>&lt;&lt;</code> dla zapisu i <code>&gt;&gt;</code> dla odczytu. Oto przykład:</p>
+            <pre><code>#include &lt;iostream&gt;
+#include &lt;fstream&gt;
+
+using namespace std;
+
+int main() {
+    // Zapis danych do pliku
+    ofstream plik("dane.txt");
+    if (plik.is_open()) {
+        int liczba = 42;
+        plik << "Liczba: " << liczba << endl;
+        plik.close();
+    }
+
+    // Odczyt danych z pliku
+    ifstream plikOdczyt("dane.txt");
+    if (plikOdczyt.is_open()) {
+        string linia;
+        while (getline(plikOdczyt, linia)) {
+            cout << linia << endl;
+        }
+        plikOdczyt.close();
+    }
+
+    return 0;
+}</code></pre>
+        </section>
+
+        <section>
+            <h1>4. Użycie RAII (Resource Acquisition Is Initialization) do zarządzania zasobami</h1>
+            <p>RAII to technika zarządzania zasobami, w której zasoby są przydzielane podczas inicjalizacji obiektów i zwalniane podczas ich niszczenia. W przypadku plików, klasy <code>ifstream</code> i <code>ofstream</code> automatycznie zamykają pliki, gdy obiekty są niszczone:</p>
+            <pre><code>#include &lt;iostream&gt;
+#include &lt;fstream&gt;
+
+using namespace std;
+
+void funkcja() {
+    ofstream plik("przykladowy.txt");
+    plik << "Przykład RAII" << endl;
+    // Plik zostanie automatycznie zamknięty, gdy obiekt plik zostanie zniszczony
+}
+
+int main() {
+    funkcja();
+
+    ifstream plik("przykladowy.txt");
+    string linia;
+    while (getline(plik, linia)) {
+        cout << linia << endl;
+    }
+
+    return 0;
+}</code></pre>
+        </section>
+    </main>
+
+    <footer>
+        <p>Bartosz Kilarski</p>
+        <p>Politechnika Świętokrzyska w Kielcach</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nauka Informatyki poziom Rozszerzony</title>
+    <link rel="stylesheet" href="../../../assets/css/style.css">
+</head>
+<body>
+
+   
+
+    <nav>
+        <ul>
+            <li>
+                
+ 		
+  		      <a href="../teoria.html">Kursy Java</a>
+  	        
+            </li>
+        </ul>
+    </nav>
+
+<section>
+    <h1>1. Co to jest Java?</h1>
+    <p>Java to wszechstronny, obiektowo-zorientowany język programowania, który został stworzony przez firmę Sun Microsystems w 1995 roku. Jest szeroko stosowany w aplikacjach internetowych, desktopowych oraz mobilnych, dzięki swojej zasady „napisz raz, uruchom wszędzie” (write once, run anywhere), która pozwala na uruchamianie aplikacji na różnych platformach bez potrzeby modyfikacji kodu źródłowego.</p>
+</section>
+
+<section>
+    <h2>2. Instalacja Javy i konfiguracja środowiska programistycznego</h2>
+    <p>Aby zainstalować Javę, należy pobrać i zainstalować Java Development Kit (JDK) z oficjalnej strony <a href="https://www.oracle.com/java/technologies/javase-jdk11-downloads.html" style="color: #1e90ff;">Oracle</a>. Po zainstalowaniu JDK, można skonfigurować środowisko programistyczne, takie jak <a href="https://www.jetbrains.com/idea/" style="color: #1e90ff;">IntelliJ IDEA</a>, <a href="https://www.eclipse.org/" style="color: #1e90ff;">Eclipse</a>, lub <a href="https://netbeans.apache.org/" style="color: #1e90ff;">NetBeans</a>. Te narzędzia ułatwiają pisanie, kompilowanie i debugowanie kodu w Javie. Dostępne są również kompilatory Javy do użytku w przeglądarce np: <a href="https://www.programiz.com/java-programming/online-compiler/" style="color: #1e90ff;">Programiz</a>.</p>
+</section>
+
+<section>
+    <h2>3. Pierwszy program w Javie</h2>
+    <p>Po zainstalowaniu Javy i skonfigurowaniu środowiska, możesz napisać swój pierwszy program. Oto przykład prostego programu "Hello World" w Javie:</p>
+    <pre><code>public class HelloWorld {
+    public static void main(String[] args) {
+        System.out.println("Hello, World!");
+    }
+}</code></pre>
+    <p>Po skompilowaniu i uruchomieniu tego programu powinieneś zobaczyć tekst: <strong>Hello, World!</strong></p>
+</section>
+
+<section>
+    <h2>4. Podstawowe typy danych w Javie</h2>
+    <ul>
+        <li><strong>Liczby całkowite:</strong>
+            <blockquote>
+                <ul>
+                    <li><strong>byte:</strong> 8-bitowa liczba całkowita, zakres od -128 do 127. Przykład:
+                        <br><code>byte b = 100;</code>
+                    </li>
+                    <li><strong>short:</strong> 16-bitowa liczba całkowita, zakres od -32,768 do 32,767. Przykład:
+                        <br><code>short s = 10000;</code>
+                    </li>
+                    <li><strong>int:</strong> 32-bitowa liczba całkowita, zakres od -2^31 do 2^31-1. Przykład:
+                        <br><code>int i = 123456;</code>
+                    </li>
+                    <li><strong>long:</strong> 64-bitowa liczba całkowita, zakres od -2^63 do 2^63-1. Przykład:
+                        <br><code>long l = 123456789012345L;</code>
+                    </li>
+                </ul>
+            </blockquote>
+        </li>
+        <li><strong>Liczby zmiennoprzecinkowe:</strong>
+            <blockquote>
+                <ul>
+                    <li><strong>float:</strong> 32-bitowa liczba zmiennoprzecinkowa, zakres od ±1.4e−45 do ±3.4e38. Przykład:
+                        <br><code>float f = 3.14f;</code>
+                    </li>
+                    <li><strong>double:</strong> 64-bitowa liczba zmiennoprzecinkowa, zakres od ±4.9e−324 do ±1.8e308. Przykład:
+                        <br><code>double d = 3.141592653589793;</code>
+                    </li>
+                </ul>
+            </blockquote>
+        </li>
+        <li><strong>Znaki:</strong>
+            <blockquote>
+                <ul>
+                    <li><strong>char:</strong> 16-bitowy znak Unicode, zakres od '\u0000' do '\uffff'. Przykład:
+                        <br><code>char c = 'A';</code>
+                    </li>
+                </ul>
+            </blockquote>
+        </li>
+        <li><strong>Napisy:</strong>
+            <blockquote>
+                <ul>
+                    <li><strong>String:</strong> Ciąg znaków, który jest używany do przechowywania tekstu. Przykład:
+                        <br><code>String str = "Hello, World!";</code>
+                    </li>
+                </ul>
+            </blockquote>
+        </li>
+        <li><strong>Typ logiczny:</strong>
+            <blockquote>
+                <ul>
+                    <li><strong>boolean:</strong> Typ logiczny, który może przyjmować wartości true lub false. Przykład:
+                        <br><code>boolean isTrue = true;</code>
+                    </li>
+                </ul>
+            </blockquote>
+        </li>
+        <li><strong>Typy referencyjne:</strong>
+            <blockquote>
+                <ul>
+                    <li><strong>Object:</strong> Typ bazowy dla wszystkich klas w Javie. Przykład:
+                        <br><code>Object obj = new Object();</code>
+                    </li>
+                </ul>
+            </blockquote>
+        </li>
+    </ul>
+</section>
+
+
+<section>
+    <h2>5. Operatory matematyczne, logiczne i bitowe</h2>
+    <ul>
+        <li><strong>Operatory matematyczne:</strong>
+            <blockquote>
+                <ul>
+                    <li><strong>Dodawanie (+):</strong> Służy do dodawania dwóch liczb. Przykład:
+                        <br><code>int sum = 5 + 3;</code>
+                    </li>
+                    <li><strong>Odejmowanie (-):</strong> Służy do odejmowania jednej liczby od drugiej. Przykład:
+                        <br><code>int difference = 10 - 4;</code>
+                    </li>
+                    <li><strong>Mnożenie (*):</strong> Służy do mnożenia dwóch liczb. Przykład:
+                        <br><code>int product = 7 * 6;</code>
+                    </li>
+                    <li><strong>Dzielenie (/):</strong> Służy do dzielenia jednej liczby przez drugą. Przykład:
+                        <br><code>int quotient = 8 / 2;</code>
+                    </li>
+                    <li><strong>Reszta z dzielenia (%):</strong> Służy do uzyskania reszty z dzielenia. Przykład:
+                        <br><code>int remainder = 10 % 3;</code>
+                    </li>
+                </ul>
+            </blockquote>
+        </li>
+        <li><strong>Operatory logiczne:</strong>
+            <blockquote>
+                <ul>
+                    <li><strong>AND (&&):</strong> Zwraca true, jeśli oba warunki są prawdziwe. Przykład:
+                        <br><code>boolean result = (5 > 3) && (8 > 6);</code>
+                    </li>
+                    <li><strong>OR (||):</strong> Zwraca true, jeśli przynajmniej jeden z warunków jest prawdziwy. Przykład:
+                        <br><code>boolean result = (5 > 3) || (8 < 6);</code>
+                    </li>
+                    <li><strong>NOT (!):</strong> Zwraca true, jeśli warunek jest fałszywy. Przykład:
+                        <br><code>boolean result = !(5 > 3);</code>
+                    </li>
+                    <li><strong>Równoważność (==):</strong> Sprawdza, czy dwie wartości są równe. Przykład:
+                        <br><code>boolean isEqual = (5 == 5);</code>
+                    </li>
+                    <li><strong>Różność (!=):</strong> Sprawdza, czy dwie wartości są różne. Przykład:
+                        <br><code>boolean isNotEqual = (5 != 3);</code>
+                    </li>
+                </ul>
+            </blockquote>
+        </li>
+        <li><strong>Operatory bitowe:</strong>
+            <blockquote>
+                <ul>
+                    <li><strong>AND (&):</strong> Wykonuje bitową operację AND. Przykład:
+                        <br><code>int bitwiseAnd = 12 & 5;</code>
+                    </li>
+                    <li><strong>OR (|):</strong> Wykonuje bitową operację OR. Przykład:
+                        <br><code>int bitwiseOr = 12 | 5;</code>
+                    </li>
+                    <li><strong>XOR (^):</strong> Wykonuje bitową operację XOR. Przykład:
+                        <br><code>int bitwiseXor = 12 ^ 5;</code>
+                    </li>
+                    <li><strong>NOT (~):</strong> Wykonuje bitową operację NOT. Przykład:
+                        <br><code>int bitwiseNot = ~12;</code>
+                    </li>
+                    <li><strong>Shift w lewo (<<):</strong> Przesuwa bity w lewo. Przykład:
+                        <br><code>int shiftLeft = 5 << 2;</code>
+                    </li>
+                    <li><strong>Shift w prawo (>>):</strong> Przesuwa bity w prawo. Przykład:
+                        <br><code>int shiftRight = 20 >> 2;</code>
+                    </li>
+                </ul>
+            </blockquote>
+        </li>
+    </ul>
+</section>
+
+
+
+    <footer>
+        <p>Bartosz Kilarski</p>
+        <p>Politechnika Świętokrzyska w Kielcach</p>
+    </footer>
+</body>
+</html>

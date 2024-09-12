@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nauka Informatyki poziom Rozszerzony</title>
+    <link rel="stylesheet" href="../../../assets/css/style.css">
+</head>
+<body>
+
+   
+
+    <nav>
+        <ul>
+            <li>
+                
+ 		
+  		      <a href="../teoria.html">Kursy Java</a>
+  	        
+            </li>
+        </ul>
+    </nav>
+
+<section>
+    <h1>1. Używanie przestrzeni nazw (package)</h1>
+    <p>Przestrzenie nazw (ang. packages) w Javie służą do organizowania kodu w logiczne grupy, co ułatwia zarządzanie i unikanie konfliktów nazw. Oto jak zdefiniować przestrzeń nazw i używać jej w kodzie:</p>
+    <ul>
+        <li><strong>Definiowanie przestrzeni nazw:</strong> <br><code>package nazwaPrzestrzeni;</code></li>
+        <li><strong>Używanie przestrzeni nazw:</strong> <br><code>import nazwaPrzestrzeni.NazwaKlasy;</code></li>
+    </ul>
+	<br></br>
+     <pre><code>
+/* Plik: Pracownik.java */
+package pl.mojafirma;
+
+public class Pracownik {
+    String imie;
+    
+    public Pracownik(String imie) {
+        this.imie = imie;
+    }
+    
+    public void przedstawSie() {
+        System.out.println("Czesc, nazywam sie " + imie);
+    }
+}
+</code></pre>
+        <!-- Plik: Test.java -->
+        <pre><code>
+/* Plik: Test.java */
+package pl.mojafirma;
+
+import pl.mojafirma.Pracownik;
+
+public class Test {
+    public static void main(String[] args) {
+        Pracownik pracownik = new Pracownik("Anna");
+        pracownik.przedstawSie();
+    }
+}
+</code></pre>
+</section>
+
+<section>
+    <h1>2. Definiowanie i używanie modułów</h1>
+    <p>W Javie moduły są częścią systemu modułów wprowadzonego w Javie 9. Moduły pozwalają na organizowanie kodu w większe jednostki. Oto jak definiować i używać modułów:</p>
+    <ul>
+        <li><strong>Definiowanie modułu:</strong> <br><code>module nazwaModulu { /* eksportowane pakiety */ }</code></li>
+        <li><strong>Używanie modułu:</strong> <br><code>requires nazwaModulu;</code></li>
+    </ul>
+<br></br>
+    <pre><code>/* Plik: module-info.java */
+module com.example.mymodule {
+    exports com.example.mypackage;
+}</code></pre>
+<br></br>
+<pre><code>/* Plik: module-info.java */
+module com.example.mainmodule {
+    requires com.example.mymodule;
+}</code></pre>
+
+    <p>W powyższych przykładach:</p>
+    <ul>
+        <li><strong>Plik: <code>module-info.java</code></strong> w katalogu <code>com/example/mymodule</code> definiuje moduł <code>com.example.mymodule</code>, który eksportuje pakiet <code>com.example.mypackage</code>.</li>
+        <li><strong>Plik: <code>module-info.java</code></strong> w katalogu <code>com/example/mainmodule</code> definiuje moduł <code>com.example.mainmodule</code>, który wymaga modułu <code>com.example.mymodule</code>.</li>
+    </ul>
+</section>
+
+<section>
+    <h1>3. Importowanie bibliotek standardowych i zewnętrznych</h1>
+    <p>Biblioteki standardowe są częścią JDK i można je zaimportować bezpośrednio do projektu. Biblioteki zewnętrzne można dodać do projektu poprzez menedżer zależności, taki jak Maven lub Gradle:</p>
+    <ul>
+        <li><strong>Importowanie bibliotek standardowych:</strong> <br><code>import java.util.ArrayList;</code></li>
+		<li><code>&lt;dependency&gt;</code> - Rozpoczyna definicję zależności w pliku `pom.xml` Mavena.</li>
+        <li><code>&lt;groupId&gt;com.example&lt;/groupId&gt;</code> - Identyfikator grupy, do której należy biblioteka. Jest to zazwyczaj unikalna nazwa organizacji lub firmy.</li>
+        <li><code>&lt;artifactId&gt;external-lib&lt;/artifactId&gt;</code> - Unikalna nazwa samej biblioteki (artefaktu). W tym przypadku jest to `external-lib`.</li>
+        <li><code>&lt;version&gt;1.0.0&lt;/version&gt;</code> - Numer wersji biblioteki, który wskazuje, której wersji używamy.</li>
+        <li><code>&lt;/dependency&gt;</code> - Kończy definicję zależności.</li>
+		</ul>
+	<br></br>
+    <pre><code>/* Plik: ListaPrzykladowa.java */
+import java.util.ArrayList;
+
+public class ListaPrzykladowa {
+    public static void main(String[] args) {
+        ArrayList<String> lista = new ArrayList<>();
+        lista.add("Element1");
+        lista.add("Element2");
+        for (String element : lista) {
+            System.out.println(element);
+        }
+    }
+}
+</code></pre>
+</section>
+
+<section>
+    <h1>4. Tworzenie i używanie własnych bibliotek</h1>
+    <p>Tworzenie własnych bibliotek polega na definiowaniu klas i metod, które można wielokrotnie używać w różnych projektach. Oto przykład tworzenia i używania własnej biblioteki:</p>
+    <br></br>
+	<pre><code>/* Plik: MojaBiblioteka.java */
+package com.mojafirma.mylib;
+
+public class MojaBiblioteka {
+    public static void powiedzHello() {
+        System.out.println("Hello from my library!");
+    }
+}
+</code></pre>
+        <!-- Plik: TestBiblioteki.java -->
+        <pre><code>
+/* Plik: TestBiblioteki.java */
+import com.mojafirma.mylib.MojaBiblioteka;
+
+public class TestBiblioteki {
+    public static void main(String[] args) {
+        MojaBiblioteka.powiedzHello();
+    }
+}
+</code></pre>
+</section>
+    <footer>
+        <p>Bartosz Kilarski</p>
+        <p>Politechnika Świętokrzyska w Kielcach</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nauka Informatyki poziom Rozszerzony</title>
+    <link rel="stylesheet" href="../../../assets/css/style.css">
+</head>
+<body>
+
+    <nav>
+        <ul>
+            <li>
+                <a href="../teoria.html">Kursy C++</a>
+            </li>
+        </ul>
+    </nav>
+
+    <main>
+        <section>
+            <h1>1. Funkcje anonimowe (lambda)</h1>
+            <p>Funkcje anonimowe, czyli lambda, są funkcjami bez nazwy. Można je używać w miejscach, gdzie potrzebna jest funkcja jako argument. Oto przykład użycia lambda:</p>
+            <pre><code>#include &lt;iostream&gt;
+#include &lt;algorithm&gt;
+#include &lt;vector&gt;
+
+using namespace std;
+
+int main() {
+    vector&lt;int&gt; liczby = {1, 2, 3, 4, 5};
+
+    // Funkcja lambda do wypisywania elementów
+    auto wypisz = [](int x) {
+        cout &lt;&lt; x &lt;&lt; " ";
+    };
+
+    for_each(liczby.begin(), liczby.end(), wypisz);
+    cout &lt;&lt; endl;
+
+    return 0;
+}</code></pre>
+        </section>
+
+        <section>
+            <h1>2. function i bind</h1>
+            <p>function to elastyczny sposób przechowywania funkcji, a bind umożliwia tworzenie nowych funkcji z istniejących poprzez wiązanie argumentów. Przykład:</p>
+            <pre><code>#include &lt;iostream&gt;
+#include &lt;functional&gt;
+
+using namespace std;
+
+void dodaj(int a, int b) {
+    cout &lt;&lt; "Wynik dodawania: " &lt;&lt; a + b &lt;&lt; endl;
+}
+
+int main() {
+    // Przechowywanie funkcji w function
+    function&lt;void(int, int)&gt; func = dodaj;
+
+    // Użycie funkcji
+    func(5, 3);
+
+    // Wiązanie argumentu do funkcji
+    auto dodaj5 = bind(dodaj, 5, placeholders::_1);
+    dodaj5(10);
+
+    return 0;
+}</code></pre>
+        </section>
+
+        <section>
+            <h1>3. Algorytmy STL: transform(), for_each()</h1>
+            <p>Algorytmy STL ułatwiają manipulację kontenerami. Oto przykłady użycia <code>transform()</code> i <code>for_each()</code>:</p>
+            <pre><code>#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;algorithm&gt;
+
+using namespace std;
+
+int main() {
+    vector&lt;int&gt; liczby = {1, 2, 3, 4, 5};
+    vector&lt;int&gt; kwadraty(liczby.size());
+
+    // Funkcja lambda do obliczania kwadratów
+    transform(liczby.begin(), liczby.end(), kwadraty.begin(), [](int x) { return x * x; });
+
+    // Funkcja lambda do wypisywania elementów
+    for_each(kwadraty.begin(), kwadraty.end(), [](int x) { cout &lt;&lt; x &lt;&lt; " "; });
+    cout &lt;&lt; endl;
+
+    return 0;
+}</code></pre>
+        </section>
+    </main>
+
+    <footer>
+        <p>Bartosz Kilarski</p>
+        <p>Politechnika Świętokrzyska w Kielcach</p>
+    </footer>
+</body>
+</html>
