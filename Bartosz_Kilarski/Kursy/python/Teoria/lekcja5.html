@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nauka Informatyki poziom Rozszerzony</title>
+    <link rel="stylesheet" href="../../../assets/css/style.css">
+</head>
+<body>
+
+   
+
+    <nav>
+        <ul>
+            <li>
+                
+ 		
+  		      <a href="../teoria.html">Kursy Python</a>
+  	        
+            </li>
+        </ul>
+    </nav>
+
+
+<section>
+        <ul>
+            <h1><strong>1. Definicja klasy i obiektu:</strong></h1>
+                <p>W Pythonie klasy definiujemy za pomocą słowa kluczowego <code>class</code>. Klasa jest szablonem do tworzenia obiektów, a obiekt jest instancją klasy. Przykład:</p>
+                <pre><code>class Osoba:
+    def __init__(self, imie, wiek):
+        self.imie = imie
+        self.wiek = wiek
+
+    def przedstaw_sie(self):
+        return f"Cześć, jestem {self.imie} i mam {self.wiek} lat."
+
+# Tworzenie obiektu
+osoba = Osoba("Anna", 30)
+print(osoba.przedstaw_sie())</code></pre>
+</section>
+<section>
+            <h1><strong>2.Inicjalizacja obiektów: metoda __init__:</strong></h1>
+                <p>Metoda <code>__init__</code> jest konstruktorem, który jest wywoływany podczas tworzenia nowego obiektu. Służy do inicjalizacji atrybutów obiektu. Przykład:</p>
+                <pre><code>class Samochod:
+    def __init__(self, marka, model):
+        self.marka = marka
+        self.model = model
+
+    def opis(self):
+        return f"Samochód: {self.marka} {self.model}"
+
+# Tworzenie obiektu
+auto = Samochod("Toyota", "Corolla")
+print(auto.opis()) </code></pre>
+</section>
+<section>
+
+            <h1><strong>3. Metody i atrybuty:</strong></h1>
+                <p>Metody to funkcje zdefiniowane w klasie, które operują na jej atrybutach. Atrybuty to zmienne związane z obiektem. Przykład:</p>
+                <pre><code>class Kula:
+    def __init__(self, promien):
+        self.promien = promien
+
+    def objetosc(self):
+        return (4/3) * 3.14 * (self.promien ** 3)
+
+# Tworzenie obiektu
+kula = Kula(5)
+print(kula.objetosc())  </code></pre>
+           
+</section>
+<section>
+            <h1><strong>4. Dziedziczenie klas:</strong></h1>
+                <p>Dziedziczenie pozwala na tworzenie nowych klas na podstawie istniejących. Nowa klasa dziedziczy atrybuty i metody klasy bazowej. Przykład:</p>
+                <pre><code>class Zwierze:
+    def __init__(self, nazwa):
+        self.nazwa = nazwa
+
+    def dzwiek(self):
+        return "Zwierzę wydaje dźwięk."
+
+class Pies(Zwierze):
+    def dzwiek(self):
+        return "Hau hau!"
+
+# Tworzenie obiektu
+pies = Pies("Burek")
+print(pies.dzwiek())  </code></pre>
+</section>
+<section>
+            <h1><strong>Dodatkowy przykład projektu z użyciem klas:</strong></h1>
+                <p>Oto prosty projekt wykorzystujący klasy i dziedziczenie:</p>
+                <pre><code>class Uczen:
+    def __init__(self, imie, klasa):
+        self.imie = imie
+        self.klasa = klasa
+
+    def przedstaw_sie(self):
+        return f"Uczeń: {self.imie}, Klasa: {self.klasa}"
+
+class Student(Uczen):
+    def __init__(self, imie, klasa, nr_indeksu):
+        super().__init__(imie, klasa)
+        self.nr_indeksu = nr_indeksu
+
+    def przedstaw_sie(self):
+        return f"Student: {self.imie}, Klasa: {self.klasa}, Nr indeksu: {self.nr_indeksu}"
+
+# Tworzenie obiektu
+student = Student("Marek", "2B", "12345")
+print(student.przedstaw_sie())  </code></pre>
+            
+        </ul>
+    </section>
+
+    <footer>
+        <p>Bartosz Kilarski</p>
+        <p>Politechnika Świętokrzyska w Kielcach</p>
+    </footer>
+</body>
+</html>

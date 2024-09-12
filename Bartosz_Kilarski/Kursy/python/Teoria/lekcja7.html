@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nauka Informatyki poziom Rozszerzony</title>
+    <link rel="stylesheet" href="../../../assets/css/style.css">
+</head>
+<body>
+
+   
+
+    <nav>
+        <ul>
+            <li>
+                
+ 		
+  		      <a href="../teoria.html">Kursy Python</a>
+  	        
+            </li>
+        </ul>
+    </nav>
+
+<section>
+    <ul>
+        <h1><strong>1. Otwieranie, zamykanie plików (open(), close()):</strong></h1>
+        <p>W Pythonie pliki można otworzyć za pomocą funkcji <code>open()</code>. Po zakończeniu pracy z plikiem, należy go zamknąć za pomocą <code>close()</code>. Przykład:</p>
+        <pre><code>plik = open("plik.txt", "r")  # Otwiera plik w trybie odczytu
+zawartosc = plik.read()  # Odczytuje zawartość pliku
+print(zawartosc)
+plik.close()  # Zamyka plik</code></pre>
+    </ul>
+</section>
+
+<section>
+    <ul>
+        <h1><strong>2. Tryby pracy z plikami: odczyt, zapis, append:</strong></h1>
+        <p>Podczas otwierania plików można określić tryb pracy:</p>
+        <ul>
+		<blockquote>
+            <li><code>"r"</code> – odczyt</li>
+            <li><code>"w"</code> – zapis (nadpisuje plik)</li>
+            <li><code>"a"</code> – dopisywanie (append)</li>
+        </blockquote>
+		</ul>
+        <p>Przykład zapisu do pliku:</p>
+        <pre><code>plik = open("plik.txt", "w")  # Otwiera plik w trybie zapisu
+plik.write("Witaj, świecie!")  # Zapisuje tekst do pliku
+plik.close()  # Zamyka plik</code></pre>
+    </ul>
+</section>
+
+<section>
+    <ul>
+        <h1><strong>3. Odczytywanie i zapisywanie danych do pliku:</strong></h1>
+        <p>Do odczytu pliku możemy użyć metody <code>read()</code>, a do zapisu <code>write()</code>. Przykład odczytu pliku linia po linii:</p>
+        <pre><code>plik = open("plik.txt", "r")  # Otwiera plik w trybie odczytu
+for linia in plik:
+    print(linia, end="")  # Odczytuje i wyświetla każdą linię
+plik.close()  # Zamyka plik</code></pre>
+    </ul>
+</section>
+
+<section>
+    <ul>
+        <h1><strong>4. Użycie menedżera kontekstu: with open:</strong></h1>
+        <p>Python posiada wbudowany mechanizm menedżera kontekstu, który automatycznie zamyka plik po zakończeniu pracy. Przykład:</p>
+        <pre><code>with open("plik.txt", "r") as plik:
+    zawartosc = plik.read()
+    print(zawartosc)  # Plik zostanie automatycznie zamknięty po zakończeniu bloku</code></pre>
+    </ul>
+</section>
+
+
+
+
+    <footer>
+        <p>Bartosz Kilarski</p>
+        <p>Politechnika Świętokrzyska w Kielcach</p>
+    </footer>
+</body>
+</html>
