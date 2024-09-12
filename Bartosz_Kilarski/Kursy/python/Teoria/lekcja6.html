@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nauka Informatyki poziom Rozszerzony</title>
+    <link rel="stylesheet" href="../../../assets/css/style.css">
+</head>
+<body>
+
+   
+
+    <nav>
+        <ul>
+            <li>
+                
+ 		
+  		      <a href="../teoria.html">Kursy Python</a>
+  	        
+            </li>
+        </ul>
+    </nav>
+
+
+<section>
+    <ul>
+        <h1><strong>1. Importowanie modułów w Pythonie:</strong></h1>
+            <p>Moduły w Pythonie to pliki zawierające definicje funkcji, klas lub zmiennych, które można importować do innych programów. Aby zaimportować moduł, używamy słowa kluczowego <code>import</code>. Przykład:</p>
+            <pre><code>import math
+print(math.sqrt(16))  </code></pre>
+        
+</section>
+<section>
+        <h1><strong>2. Moduł os, sys, math, random:</strong></h1>
+            <p>Moduły <code>os</code>, <code>sys</code>, <code>math</code> i <code>random</code> dostarczają narzędzi do pracy z systemem operacyjnym, operacji matematycznych i losowych.</p>
+            <ul>
+			<blockquote>
+                <li><strong>Moduł os:</strong> Pozwala na interakcję z systemem plików. Przykład:</li>
+                <pre><code>import os
+print(os.getcwd())  </code></pre>
+                
+                <li><strong>Moduł sys:</strong> Umożliwia dostęp do zmiennych i funkcji systemowych. Przykład:</li>
+                <pre><code>import sys
+print(sys.version)  </code></pre>
+                
+                <li><strong>Moduł math:</strong> Zawiera funkcje matematyczne, takie jak pierwiastki, logarytmy. Przykład:</li>
+                <pre><code>import math
+print(math.pi)  </code></pre>
+                
+                <li><strong>Moduł random:</strong> Służy do generowania liczb losowych. Przykład:</li>
+                <pre><code>import random
+print(random.randint(1, 10))  </code></pre>
+</blockquote>
+            </ul>
+    </section>    
+<section>
+        <h1><strong>3. Tworzenie własnych modułów:</strong></h1>
+            <p>Moduł można stworzyć, zapisując kod Pythona w pliku z rozszerzeniem <code>.py</code>. Można go potem zaimportować w innym pliku. Przykład:</p>
+            <pre><code># Plik: moj_modul.py
+def powiedz_hello():
+    print("Hello, world!")
+
+# Import w innym pliku
+import moj_modul
+moj_modul.powiedz_hello()  </code></pre>
+        
+</section>
+<section>
+    <ul>
+        <h1><strong>4. Używanie pip do instalacji zewnętrznych bibliotek:</strong></h1>
+        <p><code>pip</code> to menedżer pakietów Pythona, który pozwala instalować zewnętrzne biblioteki, takie jak <code>numpy</code>, <code>requests</code>, i wiele innych. Instalacja nowych pakietów umożliwia rozszerzenie funkcjonalności Pythona bez potrzeby pisania dodatkowego kodu.</p>
+
+        <h2><strong>Kroki instalacji pakietu:</strong></h2>
+		<blockquote>
+        <ol>
+            <li>Otwórz wiersz poleceń (CMD) lub terminal. W systemie Windows możesz to zrobić, wyszukując "cmd" w menu Start.</li>
+            <li>Upewnij się, że masz zainstalowanego Pythona oraz menedżera pip. Wpisz poniższą komendę, aby sprawdzić wersję Pythona:
+                <pre><code>python --version</code></pre>
+                Jeśli Python jest poprawnie zainstalowany, wiersz poleceń wyświetli wersję Pythona.
+            </li>
+            <li>Sprawdź, czy masz zainstalowanego <a href="https://pypi.org/project/pip/" style="color: #1e90ff;">pip</a>, wpisując poniższą komendę:
+                <pre><code>pip --version</code></pre>
+                Jeśli pip jest zainstalowany, wiersz poleceń wyświetli jego wersję.
+            </li>
+            <li>Jeśli pip jest dostępny, możesz zainstalować bibliotekę, np. <code>numpy</code>, za pomocą komendy:
+                <pre><code>pip install numpy</code></pre>
+            </li>
+        </ol>
+</blockquote>
+        <h2><strong>Korzystanie z zainstalowanej biblioteki:</strong></h2>
+        <p>Po zainstalowaniu biblioteki możesz ją zaimportować do swojego kodu i korzystać z jej funkcji. Oto przykład, jak używać biblioteki <code>numpy</code> do tworzenia tablicy:</p>
+        <pre><code>import numpy as np
+
+# Tworzenie tablicy NumPy
+tablica = np.array([1, 2, 3])
+print(tablica)  </code></pre>
+
+        <h2><strong>Uwaga:</strong></h2>
+        <p>Komendę <code>pip install</code> należy wpisać w terminalu lub wierszu poleceń, a nie w edytorze kodu. Po instalacji, aby użyć biblioteki w swoim kodzie, wystarczy zaimportować ją na początku pliku Pythona za pomocą instrukcji <code>import</code>.</p>
+    </ul>
+</section>
+
+
+    <footer>
+        <p>Bartosz Kilarski</p>
+        <p>Politechnika Świętokrzyska w Kielcach</p>
+    </footer>
+</body>
+</html>

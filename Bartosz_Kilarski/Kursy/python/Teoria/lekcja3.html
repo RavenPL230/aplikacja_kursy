@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nauka Informatyki poziom Rozszerzony</title>
+    <link rel="stylesheet" href="../../../assets/css/style.css">
+</head>
+<body>
+
+   
+
+    <nav>
+        <ul>
+            <li>
+                
+ 		
+  		      <a href="../teoria.html">Kursy Python</a>
+  	        
+            </li>
+        </ul>
+    </nav>
+
+
+<section>
+    <ul>
+        <h1><strong>1. Instrukcja if, elif, else:</strong></h1>
+            <p>Instrukcja <code>if</code> pozwala na wykonanie kodu, jeśli spełniony jest określony warunek. Instrukcja <code>elif</code> (else if) umożliwia sprawdzenie kolejnych warunków, a <code>else</code> wykonuje kod, jeśli żaden z wcześniejszych warunków nie został spełniony. Przykład:</p>
+            <pre><code>x = int(input('podaj liczbe'));
+if x > 0:
+    print("Liczba dodatnia")
+elif x == 0:
+    print("Zero")
+else:
+    print("Liczba ujemna")</code></pre>
+        
+</section>
+<section>
+        <h1><strong>2.Pętla for i while:</strong></h1>
+            <p>Pętla <code>for</code> jest używana do iteracji po elementach sekwencji, takich jak lista lub ciąg znaków. Pętla <code>while</code> wykonuje blok kodu, dopóki warunek logiczny jest spełniony. Przykłady:</p>
+            <pre>
+<strong>for:</strong>
+<code>for i in range(5):
+    print(i)</code>
+<strong>while:</strong>
+<code>i = 0
+while i < 5:
+    print(i)
+    i += 1</code></pre>
+        
+</section>
+<section>
+        <h1><strong>3. Wykorzystanie break, continue, i else w pętlach:</strong></h1>
+            <p>Instrukcja <code>break</code> przerywa pętlę, <code>continue</code> przechodzi do następnej iteracji, a <code>else</code> działa, gdy pętla zakończy się normalnie, bez użycia <code>break</code>. Przykład:</p>
+            <strong>continue:</strong>
+			<pre><code>for i in range(5):
+    if i == 3:
+        continue
+    print(i)
+</code></pre>
+<strong>break:</strong>
+<pre><code>for i in range(5):
+    if i == 3:
+        break
+    print(i)
+else:
+    print("Pętla zakończona bez przerwania")
+</code></pre>
+        
+</section>
+<section>
+        <h1><strong>4. List comprehensions i inne uproszczenia pętli:</strong></h1>
+            <p>List comprehensions pozwalają na tworzenie list w zwięzły sposób, w jednej linii kodu. Przykład:</p>
+            <pre><code>numbers = [x**2 for x in range(5)]]</code></pre>
+        
+    </ul>
+</section>
+
+    <footer>
+        <p>Bartosz Kilarski</p>
+        <p>Politechnika Świętokrzyska w Kielcach</p>
+    </footer>
+</body>
+</html>

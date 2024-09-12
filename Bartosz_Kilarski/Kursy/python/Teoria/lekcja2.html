@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nauka Informatyki poziom Rozszerzony</title>
+    <link rel="stylesheet" href="../../../assets/css/style.css">
+</head>
+<body>
+
+   
+
+    <nav>
+        <ul>
+            <li>
+                
+ 		
+  		      <a href="../teoria.html">Kursy Python</a>
+  	        
+            </li>
+        </ul>
+    </nav>
+
+<section>
+    <h2>1. Listy (Lists)</h2>
+    <p>Listy są uporządkowanymi kolekcjami elementów, które mogą przechowywać dane różnych typów. Listy są mutowalne, co oznacza, że możemy zmieniać ich zawartość po ich utworzeniu.</p>
+    <ul>
+        <li><strong>Dodawanie elementów:</strong>
+            <br><code>my_list = [1, 2, 3]</code>
+            <br><code>my_list.append(4)</code> <!-- Dodaje element na końcu listy -->
+            <br><code>my_list.extend([4, 5])</code> <!-- Dodaje elementy z listy do istniejącej listy -->
+            <br><code>my_list.insert(1, 'a')</code> <!-- Dodaje element w określonym miejscu -->
+			
+		   <p><code>append()</code> dodaje jeden element na końcu listy. Jeśli przekazujesz obiekt, taki jak lista, zostanie dodany jako pojedynczy element.</p>
+            <p><code>extend()</code> dodaje wszystkie elementy z przekazanej kolekcji (np. lista) do istniejącej listy, traktując je jako oddzielne elementy.</p>
+            <p><code>insert(index, element)</code> dodaje element w określonym miejscu w liście, na pozycji wskazanej przez `index`. Pozostałe elementy są przesuwane w prawo.</p>
+        </li>
+        <li><strong>Usuwanie elementów:</strong>
+            <br><code>my_list.remove(2)</code> <!-- Usuwa pierwsze wystąpienie elementu -->
+            <br><code>del my_list[1]</code> <!-- Usuwa element na danym indeksie -->
+        </li>
+        <li><strong>Indeksowanie:</strong> Listy pozwalają na dostęp do poszczególnych elementów poprzez indeksowanie, gdzie indeks zaczyna się od 0.
+            <br><code>first_element = my_list[0]</code>
+            <br><code>sub_list = my_list[1:3]</code>
+        </li>
+        
+</section>
+<section>
+    <h2>2. Krotki (Tuples)</h2>
+    <p>Krotki są podobne do list, ale są niemutowalne, co oznacza, że po ich utworzeniu nie można zmieniać ich zawartości. Używamy ich, gdy chcemy mieć pewność, że dane pozostaną niezmienione.</p>
+    <ul>
+        <li><strong>Tworzenie krotek:</strong>
+            <br><code>my_tuple = (1, 2, 3)</code>
+            <br><code>single_element_tuple = (1,)</code>
+            <br><code>empty_tuple = ()</code>
+        </li>
+        <li><strong>Różnice między listą a krotką:</strong> Krotki są niemutowalne, a listy mutowalne, co oznacza, że po utworzeniu krotki jej elementy nie mogą być zmienione.
+            <br><code>my_list = [1, 2, 3]</code> <!-- Lista -->
+            <br><code>my_tuple = (1, 2, 3)</code> <!-- Krotka -->
+        </li>
+    </ul>
+</section>
+<section>
+    <h2>3. Słowniki (Dictionaries)</h2>
+    <p>Słowniki to struktury danych przechowujące pary klucz-wartość. Klucze muszą być unikalne, a każdemu kluczowi odpowiada dokładnie jedna wartość. Słowniki są mutowalne, więc możemy je modyfikować po utworzeniu.</p>
+    <ul>
+        <li><strong>Klucz-wartość:</strong> Klucze mogą być dowolnego typu niemutowalnego, a wartości mogą być dowolnego typu.
+            <br><code>my_dict = {'name': 'Alice', 'age': 25}</code>
+            <br><code>name = my_dict['name']</code>
+        </li>
+        <li><strong>Metody:</strong> Słowniki posiadają różne metody, takie jak pobieranie kluczy, wartości i par klucz-wartość.
+            <br><code>my_dict.keys()</code>
+            <br><code>my_dict.values()</code>
+            <br><code>my_dict.items()</code>
+        </li>
+    </ul>
+</section>
+<section>
+    <h2>4. Zbiory (Sets)</h2>
+    <p>Zbiory to nieuporządkowane kolekcje unikalnych elementów. Zbiory pozwalają na wykonywanie operacji matematycznych, takich jak unia, przecięcie i różnica.</p>
+    <ul>
+        <li><strong>Operacje na zbiorach:</strong> Zbiory wspierają operacje matematyczne, takie jak unia, przecięcie i różnica.
+            <br><code>set1 = {1, 2, 3}</code>
+            <br><code>set2 = {3, 4, 5}</code>
+            <br><code>union_set = set1 | set2</code> <!-- unia -->
+            <br><code>intersection_set = set1 & set2</code> <!-- przecięcie -->
+            <br><code>difference_set = set1 - set2</code> <!-- różnica -->
+        </li>
+    </ul>
+</section>
+<section>
+    <h2>5. Operacje na ciągach (Strings)</h2>
+    <p>Ciągi znaków (stringi) są niemutowalne, co oznacza, że po ich utworzeniu nie można ich zmienić. Możemy jednak tworzyć nowe stringi przez konkatenację, dzielenie i inne operacje.</p>
+    <ul>
+        <li><strong>Konkatenacja:</strong> Łączenie dwóch ciągów za pomocą operatora <code>+</code>.
+            <br><code>greeting = "Hello, " + "World!"</code>
+        </li>
+        <li><strong>Indeksowanie:</strong> Dostęp do poszczególnych znaków w ciągu można uzyskać za pomocą indeksowania, zaczynając od 0.
+            <br><code>first_char = greeting[0]</code>
+            <br><code>substring = greeting[1:5]</code>
+        </li>
+        <li><strong>Operacje na stringach:</strong> Możemy również manipulować ciągami za pomocą metod, takich jak <code>upper()</code> czy <code>lower()</code>.
+            <br><code>length = len(greeting)</code>
+            <br><code>upper_case = greeting.upper()</code>
+            <br><code>lower_case = greeting.lower()</code>
+            <br><code>split_words = greeting.split(",")</code>
+        </li>
+    </ul>
+</section>
+
+
+
+    <footer>
+        <p>Bartosz Kilarski</p>
+        <p>Politechnika Świętokrzyska w Kielcach</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nauka Informatyki poziom Rozszerzony</title>
+    <link rel="stylesheet" href="../../../assets/css/style.css">
+</head>
+<body>
+
+   
+
+    <nav>
+        <ul>
+            <li>
+                
+ 		
+  		      <a href="../teoria.html">Kursy Python</a>
+  	        
+            </li>
+        </ul>
+    </nav>
+
+
+<section>
+    <ul>
+        <h1><strong>1. Definicja funkcji: def</strong></h1>
+            <p>W Pythonie funkcje definiujemy za pomocą słowa kluczowego <code>def</code>, po którym następuje nazwa funkcji, nawiasy, a następnie dwukropek. Kod funkcji umieszczamy we wcięciu. Przykład:</p>
+            <pre><code>def powiedz_hello():
+    print("Hello!")</code></pre>
+	</section>
+<section>
+        <h1><strong>2. Parametry i zwracanie wartości:</strong></h1>
+            <p>Funkcje mogą przyjmować parametry i zwracać wartości za pomocą instrukcji <code>return</code>. Przykład:</p>
+            <pre><code>def dodaj(a, b):
+    return a + b
+
+wynik = dodaj(3, 4)
+print(wynik)</code></pre>
+        
+</section>
+<section>
+        <h1><strong>3. Zmienne globalne vs lokalne:</strong></h1>
+            <p>Zmienne zdefiniowane wewnątrz funkcji są lokalne i widoczne tylko w jej obrębie. Zmienne globalne mogą być używane w całym programie. Przykład:</p>
+            <pre><code>globalna = 10
+
+def funkcja():
+    lokalna = 5
+    print(lokalna)
+
+funkcja()
+print(globalna)</code></pre>
+</section>
+        <section>
+
+        <h1><strong>4. Domyślne wartości parametrów:</strong></h1>
+            <p>Funkcje mogą mieć parametry z domyślnymi wartościami, które są używane, gdy nie podamy argumentów. Przykład:</p>
+            <pre><code>def powiedz_hello(imie="świat"):
+    print("Hello, " + imie + "!")
+
+powiedz_hello()
+powiedz_hello("Bartosz")</code></pre>
+        
+</section>
+<section>
+        <h1><strong>5. Rekurencja (np. silnia, ciąg Fibonacciego):</strong></h1>
+            <p>Rekurencja to technika, w której funkcja wywołuje samą siebie. Używa się jej np. do obliczania silni lub ciągu Fibonacciego. Przykład silni:</p>
+            <pre><code>def silnia(n):
+    if n == 0:
+        return 1
+    else:
+        return n * silnia(n - 1)
+
+print(silnia(5))</code></pre>
+            
+            <p>Przykład ciągu Fibonacciego:</p>
+            <pre><code>def fibonacci(n):
+    if n <= 1:
+        return n
+    else:
+        return fibonacci(n - 1) + fibonacci(n - 2)
+
+print(fibonacci(6))</code></pre>
+        
+    </ul>
+</section>
+
+    <footer>
+        <p>Bartosz Kilarski</p>
+        <p>Politechnika Świętokrzyska w Kielcach</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nauka Informatyki poziom Rozszerzony</title>
+    <link rel="stylesheet" href="../../../assets/css/style.css">
+</head>
+<body>
+
+    <nav>
+        <ul>
+            <li>
+                <a href="../teoria.html">Kursy Python</a>
+            </li>
+        </ul>
+    </nav>
+
+    <main>
+      <section>
+        <h1><strong>1. Funkcje anonimowe (lambda): składnia i przykłady użycia</strong></h1>
+        <p>Funkcja lambda w Pythonie to anonimowa funkcja, która może mieć dowolną liczbę argumentów, ale tylko jedno wyrażenie. Składnia funkcji <code>lambda</code> wygląda następująco:</p>
+        <pre><code># Przykład funkcji lambda
+dodaj = lambda x, y: x + y
+print(dodaj(5, 3))  # Wynik: 8</code></pre>
+        <p>Funkcja <code>lambda</code> w powyższym przykładzie działa jak każda inna funkcja, ale jej deklaracja jest bardziej zwięzła.</p>
+<br></br>
+        <h2><strong>2. Funkcje wyższego rzędu: map(), filter(), reduce()</strong></h2>
+        <p>Funkcje wyższego rzędu to funkcje, które mogą przyjmować inne funkcje jako argumenty lub zwracać funkcje. Przykłady takich funkcji to <code>map()</code>, <code>filter()</code> i <code>reduce()</code>:</p>
+
+        <h3>Przykład <code>map()</code>:</h3>
+        <pre><code># Funkcja map() stosuje funkcję do każdego elementu iterowalnego
+numbers = [1, 2, 3, 4]
+squares = list(map(lambda x: x**2, numbers))
+print(squares)  # Wynik: [1, 4, 9, 16]</code></pre>
+
+        <h3>Przykład <code>filter()</code>:</h3>
+        <pre><code># Funkcja filter() filtruje elementy na podstawie warunku
+numbers = [1, 2, 3, 4]
+evens = list(filter(lambda x: x % 2 == 0, numbers))
+print(evens)  # Wynik: [2, 4]</code></pre>
+
+        <h3>Przykład <code>reduce()</code>:</h3>
+        <pre><code># Funkcja reduce() redukuje iterowalną do pojedynczej wartości
+from functools import reduce
+
+numbers = [1, 2, 3, 4]
+sum_of_numbers = reduce(lambda x, y: x + y, numbers)
+print(sum_of_numbers)  # Wynik: 10</code></pre>
+        <p>W powyższym przykładzie, <code>reduce()</code> stopniowo redukuje listę liczb, sumując jej elementy.</p>
+<br></br>
+        <h2><strong>3. Porównanie list comprehensions z map() i filter()</strong></h2>
+        <p>List comprehensions oferują bardziej zwięzły sposób na mapowanie i filtrowanie danych w Pythonie w porównaniu do <code>map()</code> i <code>filter()</code>. Oto porównanie:</p>
+
+        <h3>Przykład list comprehension dla mapowania:</h3>
+        <pre><code># Użycie list comprehension do podniesienia liczb do kwadratu
+numbers = [1, 2, 3, 4]
+squares = [x**2 for x in numbers]
+print(squares)  # Wynik: [1, 4, 9, 16]</code></pre>
+
+        <h3>Przykład list comprehension dla filtrowania:</h3>
+        <pre><code># Użycie list comprehension do filtrowania liczb parzystych
+numbers = [1, 2, 3, 4]
+evens = [x for x in numbers if x % 2 == 0]
+print(evens)  # Wynik: [2, 4]</code></pre>
+
+        <p>List comprehensions mogą być szybsze i bardziej zrozumiałe dla krótkich operacji mapowania i filtrowania, podczas gdy <code>map()</code> i <code>filter()</code> mogą być bardziej czytelne dla bardziej złożonych operacji, szczególnie gdy korzystamy z istniejących funkcji.</p>
+<br></br>
+        <h2><strong>4. Funkcje wyższego rzędu z własnymi funkcjami</strong></h2>
+        <p>W Pythonie funkcje mogą być przekazywane jako argumenty do innych funkcji. Oto przykład funkcji wyższego rzędu, która przyjmuje funkcję jako argument:</p>
+        <pre><code># Funkcja wyższego rzędu
+def przyjmij_funkcje(func, x):
+    return func(x)
+
+# Funkcja do przekazania
+def kwadrat(n):
+    return n ** 2
+
+print(przyjmij_funkcje(kwadrat, 5))  # Wynik: 25</code></pre>
+  <p>Funkcja <code>przyjmij_funkcje()</code> przyjmuje dowolną funkcję i stosuje ją do wartości <code>x</code>. W tym przypadku przekazujemy funkcję <code>kwadrat()</code>, która podnosi liczbę do kwadratu.</p>
+    </section>
+</main>
+
+    </main>
+
+    <footer>
+        <p>Bartosz Kilarski</p>
+        <p>Politechnika Świętokrzyska w Kielcach</p>
+    </footer>
+</body>
+</html>

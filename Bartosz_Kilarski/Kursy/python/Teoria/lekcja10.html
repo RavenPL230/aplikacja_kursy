@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nauka Informatyki poziom Rozszerzony</title>
+    <link rel="stylesheet" href="../../../assets/css/style.css">
+</head>
+<body>
+
+   
+
+    <nav>
+        <ul>
+            <li>
+                
+ 		
+  		      <a href="../teoria.html">Kursy Python</a>
+  	        
+            </li>
+        </ul>
+    </nav>
+
+<<section>
+        <h1><strong>1. Wprowadzenie do zarządzania pamięcią: podstawowe pojęcia</strong></h1>
+        <p>W Pythonie zarządzanie pamięcią odbywa się automatycznie dzięki wbudowanemu mechanizmowi Garbage Collection (GC) oraz dynamicznemu przydzielaniu pamięci. Obejmuje ono:</p>
+        <ul>
+            <li>Dynamiczne zarządzanie zmiennymi</li>
+            <li>System referencji i licznik referencji</li>
+            <li>Mechanizmy automatycznego zarządzania pamięcią</li>
+        </ul>
+    </section>
+
+    <section>
+        <h1><strong>2. System referencji w Pythonie: zmienne i obiekty</strong></h1>
+        <p>W Pythonie zmienne są referencjami do obiektów. Przykład pokazujący różnicę między zmienną a obiektem:</p>
+        <pre><code>my_var = 10
+another_var = my_var
+
+print("Wartość my_var:", my_var)
+print("Wartość another_var:", another_var)
+
+my_var = 20
+print("Wartość my_var po zmianie:", my_var)
+print("Wartość another_var pozostaje niezmieniona:", another_var)</code></pre>
+  <br></br>
+ <p>Wyjaśnienie:</p>
+
+        <ul>
+            <li>Kiedy przypisujemy <code>my_var = 10</code>, Python tworzy obiekt liczby <code>10</code> i zmienna <code>my_var</code> odnosi się do tego obiektu.</li>
+            <li>Kiedy przypisujemy <code>another_var = my_var</code>, zmienna <code>another_var</code> zaczyna odnosić się do tego samego obiektu, co <code>my_var</code> – do liczby <code>10</code>.</li>
+            <li>Kiedy zmieniamy wartość <code>my_var</code> na <code>20</code>, zmienna <code>my_var</code> odnosi się teraz do nowego obiektu o wartości <code>20</code>, ale <code>another_var</code> wciąż wskazuje na oryginalny obiekt <code>10</code>.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h1><strong>3. Automatyczne zarządzanie pamięcią: Garbage Collection</strong></h1>
+        <p>Garbage Collection to mechanizm, który automatycznie usuwa nieużywane obiekty w Pythonie. W Pythonie można wymusić działanie GC za pomocą modułu <code>gc</code>. Przykład:</p>
+       <pre><code># Importowanie modułu garbage collection
+import gc
+
+class MyClass:
+    def __init__(self, name):
+        self.name = name
+        print(f"Obiekt {self.name} został utworzony")
+
+    def __del__(self):
+        print(f"Obiekt {self.name} został usunięty")
+
+# Tworzymy obiekt
+obj = MyClass("A")
+
+# Usuwamy referencję do obiektu, co sprawia, że obiekt jest nieużywany
+del obj
+
+# Wymuszamy działanie garbage collection
+gc.collect()
+
+# W tym momencie obiekt został usunięty przez garbage collector</code></pre>
+<br></br>
+        <p>Wyjaśnienie:</p>
+        <ul>
+            <li>W klasie <code>MyClass</code> zdefiniowaliśmy metodę <code>__del__</code>, która jest wywoływana, gdy obiekt jest usuwany.</li>
+            <li>Tworzymy obiekt <code>obj</code> z nazwą <code>"A"</code>, a następnie usuwamy referencję do tego obiektu za pomocą <code>del obj</code>.</li>
+            <li>Po wywołaniu <code>gc.collect()</code> garbage collector usuwa obiekt, ponieważ nie ma do niego żadnych referencji. Metoda <code>__del__</code> zostaje wywołana, a obiekt jest usunięty z pamięci.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h1><strong>4. Dynamiczne zarządzanie pamięcią w Pythonie</strong></h1>
+        <p>W Pythonie nie trzeba jawnie alokować i zwalniać pamięci, ponieważ dzieje się to automatycznie. Przykład dynamicznego tworzenia obiektów:</p>
+        <pre><code># Tworzenie dynamicznej listy
+my_list = [1, 2, 3, 4]  # dynamicznie tworzona lista
+print("Elementy listy:", my_list)
+
+# Dodanie elementu do listy, co automatycznie zarządza pamięcią
+my_list.append(5)
+print("Lista po dodaniu elementu:", my_list)</code></pre>
+<br></br>
+        <p>Wyjaśnienie:</p>
+        <ul>
+            <li>W Pythonie lista <code>my_list</code> jest dynamicznie tworzona w momencie przypisania wartości <code>[1, 2, 3, 4]</code>. Python automatycznie alokuje pamięć na potrzeby tej listy.</li>
+            <li>Kiedy wywołujemy <code>my_list.append(5)</code>, Python automatycznie zarządza pamięcią, rozszerzając listę o nowy element. Nie musimy ręcznie przydzielać dodatkowej pamięci – Python zajmuje się tym za nas.</li>
+            <li>Dynamiczne zarządzanie pamięcią w Pythonie sprawia, że możemy wygodnie pracować z kolekcjami danych bez konieczności martwienia się o szczegóły alokacji.</li>
+        </ul>
+</section>
+    <section>
+        <h1><strong>5. Mechanizmy zarządzania pamięcią w Pythonie: weakref</strong></h1>
+        <p>Moduł <code>weakref</code> pozwala na tworzenie słabych referencji do obiektów, które nie wpływają na licznik referencji. Przykład użycia:</p>
+           <pre><code># Importowanie modułu weakref
+import weakref
+
+# Definicja klasy MyClass
+class MyClass:
+    pass
+
+# Tworzymy obiekt klasy MyClass
+obj = MyClass()
+
+# Tworzymy słabą referencję do obiektu
+weak_ref = weakref.ref(obj)
+
+# Wyświetlenie oryginalnego obiektu i jego słabej referencji
+print("Obiekt:", obj)
+print("Słaba referencja:", weak_ref())  # Odwołanie do obiektu przez słabą referencję
+
+# Usunięcie oryginalnego obiektu
+del obj
+
+# Po usunięciu oryginalnego obiektu słaba referencja zwraca None
+print("Słaba referencja po usunięciu obiektu:", weak_ref())</code></pre>
+<br></br>
+        <p>Wyjaśnienie:</p>
+        <ul>
+            <li>Moduł <code>weakref</code> umożliwia tworzenie referencji do obiektów, które nie zwiększają licznika referencji. Dzięki temu obiekt może zostać usunięty przez garbage collector, nawet jeśli istnieją słabe referencje do niego.</li>
+            <li>W przykładzie tworzony jest obiekt klasy <code>MyClass</code>, a następnie tworzona jest słaba referencja do tego obiektu za pomocą <code>weakref.ref(obj)</code>.</li>
+            <li>Po usunięciu oryginalnego obiektu za pomocą <code>del obj</code>, słaba referencja zwraca <code>None</code>, co oznacza, że obiekt został usunięty z pamięci.</li>
+        </ul>
+    </section>
+
+<section>
+    <h1><strong>6. <code>deepcopy()</code> vs <code>copy()</code>:</strong></h1>
+    <p>Python oferuje dwie funkcje do kopiowania obiektów: <code>copy()</code> oraz <code>deepcopy()</code>. Oto ich różnice:</p>
+    <h2><strong>Funkcja <code>copy()</code>:</strong></h2>
+    <p>Tworzy płytką kopię obiektu, co oznacza, że obiekt zewnętrzny zostaje skopiowany, ale obiekty zagnieżdżone są współdzielone. Przykład:</p>
+    <pre><code>import copy
+
+lista1 = [1, 2, [3, 4]]
+lista2 = copy.copy(lista1)
+lista2[2][0] = 99
+print(lista1)</code></pre>
+
+    <h2><strong>Funkcja <code>deepcopy()</code>:</strong></h2>
+    <p>Tworzy głęboką kopię obiektu, co oznacza, że wszystkie elementy, zarówno zewnętrzne, jak i zagnieżdżone, są kopiowane, co pozwala na niezależność obiektów. Przykład:</p>
+    <pre><code>import copy
+
+lista1 = [1, 2, [3, 4]]
+lista2 = copy.deepcopy(lista1)
+lista2[2][0] = 99
+print(lista1)</code></pre>
+</section>
+
+
+
+    <footer>
+        <p>Bartosz Kilarski</p>
+        <p>Politechnika Świętokrzyska w Kielcach</p>
+    </footer>
+</body>
+</html>
